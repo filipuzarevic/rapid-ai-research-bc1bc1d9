@@ -15,11 +15,6 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center md:space-x-12">
           <div className="md:w-1/2 space-y-6 animate-fade-in">
-            <div className="inline-flex items-center px-3 py-1 rounded-full border border-agency-purple/30 bg-agency-purple/5 text-agency-purple text-sm font-medium">
-              <span className="flex h-2 w-2 rounded-full bg-agency-purple mr-2"></span>
-              15+ Years of Experience in User Research
-            </div>
-            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-agency-navy">
               User Insights <br className="hidden sm:block" />
               <span className="text-agency-blue">Make or Break</span> <br className="hidden sm:block" />

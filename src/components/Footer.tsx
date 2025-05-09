@@ -1,6 +1,7 @@
 
 import React from "react";
 import AnimatedElement from "@/components/ui/animated-element";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -22,8 +23,8 @@ const Footer = () => {
         <AnimatedElement animation="animate-fade-up" delay={200} className="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400">© {currentYear} RapidResearch. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
+            <Link to="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Terms & Conditions</Link>
             <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Privacy Policy</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Terms of Service</a>
           </div>
         </AnimatedElement>
       </div>

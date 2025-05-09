@@ -16,6 +16,8 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/sonner";
 import { supabase } from "@/integrations/supabase/client";
+import { CircleCheck, Loader2, BrainCircuit, Rocket, Lightbulb } from "lucide-react";
+import StaggeredChildren from "@/components/ui/staggered-children";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -34,6 +36,7 @@ const formSchema = z.object({
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -81,6 +84,7 @@ const ContactForm = () => {
         description: "We'll get back to you as soon as possible.",
       });
       
+      setIsSubmitted(true);
       form.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -92,83 +96,146 @@ const ContactForm = () => {
     }
   }
 
-  return (
-    <div className="bg-white shadow-lg rounded-lg p-6 md:p-8 border border-gray-100">
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Full Name</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your name" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name="company"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Company</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your company name" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                  <Input placeholder="Your email address" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Textarea 
-                    placeholder="Tell us about your project and research needs"
-                    className="min-h-32" 
-                    {...field} 
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          
-          <Button 
-            type="submit" 
-            className="w-full bg-agency-blue hover:bg-agency-navy text-white py-6 h-auto"
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? "Sending..." : "Submit Request"}
-          </Button>
-          
-          <div className="text-center text-sm text-gray-500 mt-4">
-            By submitting this form, you agree to our privacy policy and terms of service.
+  if (isSubmitted) {
+    return (
+      <div className="bg-white shadow-lg rounded-lg p-6 md:p-8 border border-gray-100 text-center">
+        <div className="mb-6 flex justify-center">
+          <div className="h-16 w-16 bg-green-100 rounded-full flex items-center justify-center animate-zoom-in">
+            <CircleCheck className="h-8 w-8 text-green-600" />
           </div>
-        </form>
-      </Form>
+        </div>
+        <h3 className="text-2xl font-bold text-gray-900 mb-2 animate-fade-up">Thank You!</h3>
+        <p className="text-gray-600 mb-6 animate-fade-up">
+          We've received your message and will get back to you within 24 hours.
+        </p>
+        <Button 
+          onClick={() => setIsSubmitted(false)} 
+          className="bg-agency-purple hover:bg-agency-navy text-white transition-all duration-300"
+        >
+          Send Another Message
+        </Button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="bg-white shadow-xl rounded-lg overflow-hidden border border-gray-100 transition-all duration-500 hover:shadow-2xl">
+      <div className="bg-gradient-to-r from-agency-purple to-agency-blue p-6 text-white">
+        <div className="flex items-center space-x-3">
+          <BrainCircuit className="h-6 w-6" />
+          <h3 className="text-xl font-semibold">AI Research Request</h3>
+        </div>
+        <p className="text-white/80 mt-2 text-sm">Fill out the form below to discuss your AI product research needs</p>
+      </div>
+      
+      <div className="p-6 md:p-8">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <StaggeredChildren animation="animate-fade-up" staggerDelay={100} baseDelay={100}>
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="flex items-center">
+                      <span>Full Name</span>
+                    </FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="Your name" 
+                        {...field} 
+                        className="border-gray-300 focus:border-agency-purple focus:ring-agency-purple/20 transition-all" 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="company"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="flex items-center">
+                      <Rocket className="mr-2 h-4 w-4 text-agency-purple" />
+                      <span>Company / Startup</span>
+                    </FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="Your company or startup name" 
+                        {...field} 
+                        className="border-gray-300 focus:border-agency-purple focus:ring-agency-purple/20 transition-all" 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input 
+                        placeholder="Your email address" 
+                        {...field} 
+                        className="border-gray-300 focus:border-agency-purple focus:ring-agency-purple/20 transition-all" 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="flex items-center">
+                      <Lightbulb className="mr-2 h-4 w-4 text-agency-purple" />
+                      <span>Tell us about your AI project</span>
+                    </FormLabel>
+                    <FormControl>
+                      <Textarea 
+                        placeholder="Describe your AI product and research needs"
+                        className="min-h-32 border-gray-300 focus:border-agency-purple focus:ring-agency-purple/20 transition-all" 
+                        {...field} 
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <div className="pt-2">
+                <Button 
+                  type="submit" 
+                  className="w-full bg-gradient-to-r from-agency-purple to-agency-blue hover:from-agency-blue hover:to-agency-purple text-white py-6 h-auto transition-all duration-500 hover:shadow-lg"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    "Request AI Research Consultation"
+                  )}
+                </Button>
+              </div>
+              
+              <div className="text-center text-sm text-gray-500 mt-4">
+                By submitting this form, you agree to our privacy policy and terms of service.
+              </div>
+            </StaggeredChildren>
+          </form>
+        </Form>
+      </div>
     </div>
   );
 };

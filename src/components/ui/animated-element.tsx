@@ -11,6 +11,7 @@ interface AnimatedElementProps {
   threshold?: number;
   rootMargin?: string;
   triggerOnce?: boolean;
+  duration?: number;
 }
 
 const AnimatedElement = ({
@@ -21,6 +22,7 @@ const AnimatedElement = ({
   threshold = 0.1,
   rootMargin = "0px",
   triggerOnce = true,
+  duration = 700,
 }: AnimatedElementProps) => {
   const { ref, isIntersecting } = useIntersectionObserver({
     threshold,
@@ -32,13 +34,13 @@ const AnimatedElement = ({
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
       className={cn(
-        "transition-all duration-700",
+        `transition-all duration-${duration}`,
         isIntersecting ? animation : "opacity-0",
-        delay > 0 && isIntersecting ? `delay-[${delay}ms]` : "",
         className
       )}
       style={{
         transitionDelay: delay > 0 ? `${delay}ms` : undefined,
+        transitionDuration: `${duration}ms`,
       }}
     >
       {children}

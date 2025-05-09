@@ -65,10 +65,13 @@ export default {
 				},
 				agency: {
 					blue: "#2563EB",
-					purple: "#8B5CF6",
-					navy: "#1E3A8A",
+					purple: "#8B5CF6",  // Electric Purple for innovation
+					navy: "#0F172A",    // Deep Navy for text/backgrounds
+					teal: "#06B6D4",    // Teal for modern tech feel
 					lightBlue: "#DBEAFE",
-					gray: "#F3F4F6"
+					gray: "#F3F4F6",
+					accent: "#3B82F6",  // Bright Electric Blue for highlights
+					light: "#F8FAFC"    // Soft Gray for backgrounds
 				}
 			},
 			borderRadius: {
@@ -133,6 +136,27 @@ export default {
 				'bounce-light': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-5px)' }
+				},
+				'pulse-soft': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.7' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'typing': {
+					'0%': { width: '0' },
+					'100%': { width: '100%' }
+				},
+				'blink': {
+					'0%, 100%': { borderColor: 'transparent' },
+					'50%': { borderColor: 'white' }
+				},
+				'gradient-shift': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
 				}
 			},
 			animation: {
@@ -148,10 +172,18 @@ export default {
 				'zoom-in': 'zoom-in 0.8s ease-out forwards',
 				'zoom-out': 'zoom-out 0.8s ease-out forwards',
 				'spin-slow': 'spin-slow 8s linear infinite',
-				'bounce-light': 'bounce-light 2s ease-in-out infinite'
+				'bounce-light': 'bounce-light 2s ease-in-out infinite',
+				'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
+				'float': 'float 6s ease-in-out infinite',
+				'typing': 'typing 2s steps(40, end)',
+				'blink': 'blink 0.75s step-end infinite',
+				'gradient-shift': 'gradient-shift 15s ease infinite'
 			},
 			backgroundImage: {
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))'
+				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+				'neural-pattern': 'url("/neural-pattern.svg")',
+				'data-flow': 'url("/data-flow.svg")',
+				'gradient-mesh': 'linear-gradient(to right bottom, #8B5CF6, #3B82F6, #06B6D4)'
 			}
 		}
 	},

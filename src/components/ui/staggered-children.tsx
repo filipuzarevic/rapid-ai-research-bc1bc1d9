@@ -12,6 +12,7 @@ interface StaggeredChildrenProps {
   threshold?: number;
   rootMargin?: string;
   baseDelay?: number;
+  duration?: number;
 }
 
 const StaggeredChildren = ({
@@ -23,6 +24,7 @@ const StaggeredChildren = ({
   threshold = 0.1,
   rootMargin = "0px",
   baseDelay = 0,
+  duration = 700,
 }: StaggeredChildrenProps) => {
   const { ref, isIntersecting } = useIntersectionObserver({
     threshold,
@@ -42,12 +44,13 @@ const StaggeredChildren = ({
           <div
             key={index}
             className={cn(
-              "transition-all duration-700",
+              "transition-all",
               isIntersecting ? animation : "opacity-0",
               childClassName
             )}
             style={{
               transitionDelay: `${delay}ms`,
+              transitionDuration: `${duration}ms`,
             }}
           >
             {child}

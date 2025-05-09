@@ -24,7 +24,7 @@ const Footer = () => {
           <p className="text-gray-400">© {currentYear} RapidResearch. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <Link to="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Terms & Conditions</Link>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Privacy Policy</a>
+            <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Privacy Policy</Link>
           </div>
         </AnimatedElement>
       </div>

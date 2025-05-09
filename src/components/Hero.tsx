@@ -16,11 +16,6 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center md:space-x-12">
           <div className="md:w-1/2 space-y-6 animate-fade-in">
-            <div className="inline-flex items-center px-3 py-1 rounded-full border border-agency-blue/30 bg-agency-blue/5 text-agency-blue text-sm font-medium">
-              <span className="flex h-2 w-2 rounded-full bg-agency-blue mr-2 animate-pulse"></span>
-              Time-critical insights for AI startups
-            </div>
-            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-agency-navy">
               User Insights <br className="hidden sm:block" />
               <span className="text-agency-blue">Make or Break</span> <br className="hidden sm:block" />
@@ -28,13 +23,13 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-gray-600">
-              In today's AI race, understanding your users isn't optional—it's the decisive factor between market leadership and obsolescence. Get actionable insights in just one week that deliver measurable business outcomes.
+              In the AI startup race, understanding your users isn't optional, it's the decisive factor between market leadership and obsolescence. Get actionable insights in just one week that deliver measurable business outcomes.
             </p>
             
             <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">
               <Link to="/contact">
                 <Button className="bg-agency-blue hover:bg-agency-navy text-white text-base md:text-lg px-6 py-6 h-auto">
-                  Schedule Free Consultation
+                  Schedule Consultation
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -56,8 +51,8 @@ const Hero = () => {
                 />
               </div>
               <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg border border-gray-100">
-                <p className="text-agency-navy font-semibold text-lg">1-Week Discovery Sprint</p>
-                <p className="text-gray-600">From research to actionable insights</p>
+                <p className="text-agency-navy font-semibold text-lg">Flexible Collaboration</p>
+                <p className="text-gray-600">From continuous support to quick sprints</p>
               </div>
             </div>
           </div>

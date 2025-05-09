@@ -6,7 +6,6 @@ import Features from "@/components/Features";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
-import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -30,7 +29,6 @@ const Index = () => {
       <Services />
       <Process />
       <Testimonials />
-      <CTA />
       <Footer />
     </div>
   );

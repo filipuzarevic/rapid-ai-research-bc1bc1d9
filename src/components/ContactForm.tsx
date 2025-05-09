@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { CircleCheck, Loader2, BrainCircuit, Rocket, Lightbulb } from "lucide-react";
+import { CircleCheck, Loader2 } from "lucide-react";
 import StaggeredChildren from "@/components/ui/staggered-children";
 
 const formSchema = z.object({
@@ -120,14 +120,6 @@ const ContactForm = () => {
 
   return (
     <div className="bg-white shadow-xl rounded-lg overflow-hidden border border-gray-100 transition-all duration-500 hover:shadow-2xl">
-      <div className="bg-gradient-to-r from-agency-purple to-agency-blue p-6 text-white">
-        <div className="flex items-center space-x-3">
-          <BrainCircuit className="h-6 w-6" />
-          <h3 className="text-xl font-semibold">AI Research Request</h3>
-        </div>
-        <p className="text-white/80 mt-2 text-sm">Fill out the form below to discuss your AI product research needs</p>
-      </div>
-      
       <div className="p-6 md:p-8">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -137,9 +129,7 @@ const ContactForm = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center">
-                      <span>Full Name</span>
-                    </FormLabel>
+                    <FormLabel>Full Name</FormLabel>
                     <FormControl>
                       <Input 
                         placeholder="Your name" 
@@ -157,13 +147,10 @@ const ContactForm = () => {
                 name="company"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center">
-                      <Rocket className="mr-2 h-4 w-4 text-agency-purple" />
-                      <span>Company / Startup</span>
-                    </FormLabel>
+                    <FormLabel>Company</FormLabel>
                     <FormControl>
                       <Input 
-                        placeholder="Your company or startup name" 
+                        placeholder="Your company name" 
                         {...field} 
                         className="border-gray-300 focus:border-agency-purple focus:ring-agency-purple/20 transition-all" 
                       />
@@ -196,13 +183,10 @@ const ContactForm = () => {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="flex items-center">
-                      <Lightbulb className="mr-2 h-4 w-4 text-agency-purple" />
-                      <span>Tell us about your AI project</span>
-                    </FormLabel>
+                    <FormLabel>Message</FormLabel>
                     <FormControl>
                       <Textarea 
-                        placeholder="Describe your AI product and research needs"
+                        placeholder="How can we help you?"
                         className="min-h-32 border-gray-300 focus:border-agency-purple focus:ring-agency-purple/20 transition-all" 
                         {...field} 
                       />
@@ -224,7 +208,7 @@ const ContactForm = () => {
                       Sending...
                     </>
                   ) : (
-                    "Request AI Research Consultation"
+                    "Send Message"
                   )}
                 </Button>
               </div>

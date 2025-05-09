@@ -2,6 +2,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTA = () => {
   const benefits = [
@@ -33,10 +34,12 @@ const CTA = () => {
                 ))}
               </ul>
               
-              <Button className="bg-white text-agency-blue hover:bg-gray-100 text-base px-6 py-6 h-auto font-semibold shadow-lg">
-                Schedule Free Consultation
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <Link to="/contact">
+                <Button className="bg-white text-agency-blue hover:bg-gray-100 text-base px-6 py-6 h-auto font-semibold shadow-lg">
+                  Schedule Free Consultation
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
             
             <div className="md:w-2/5 bg-white/10 backdrop-blur-sm p-8 md:p-12 flex items-center">

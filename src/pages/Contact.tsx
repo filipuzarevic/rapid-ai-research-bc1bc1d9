@@ -19,6 +19,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { supabase } from "@/integrations/supabase/client";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -52,13 +53,26 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // In a real application, this would send data to a backend API
-      // For this demo, we'll simulate sending an email with a timeout
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Step 1: Store the submission in Supabase
+      const { error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert([values]);
       
-      console.log("Form submitted:", values);
-      // Would send email to fuzarevi@gmail.com with form data
+      if (dbError) {
+        throw new Error(`Database error: ${dbError.message}`);
+      }
+      
+      // Step 2: Send email notifications using Edge Function
+      const response = await supabase.functions.invoke('send-contact-notification', {
+        body: values
+      });
+      
+      if (response.error) {
+        throw new Error(`Email notification error: ${response.error.message}`);
+      }
 
+      console.log("Form submitted successfully:", { dbResult: "Success", emailResult: response.data });
+      
       toast.success("Your message has been sent successfully!", {
         description: "We'll get back to you as soon as possible.",
       });

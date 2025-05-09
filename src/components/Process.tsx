@@ -4,8 +4,7 @@ import {
   ClipboardList, 
   Users, 
   LineChart, 
-  PenTool,
-  ArrowRight
+  PenTool
 } from "lucide-react";
 
 const Process = () => {
@@ -45,10 +44,10 @@ const Process = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-agency-navy">
-            1-Week Discovery Sprint
+            Flexible Research Options
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-            Our high-velocity research process designed specifically for AI startups
+            From week-long discovery sprints to ongoing collaborative partnerships
           </p>
         </div>
 
@@ -91,20 +90,13 @@ const Process = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-agency-lightBlue rounded-xl p-8 text-center">
+        <div className="mt-12 bg-agency-lightBlue rounded-xl p-8 text-center">
           <h3 className="text-xl md:text-2xl font-bold text-agency-navy mb-4">
-            Need insights even faster?
+            Tailored to Your Timeline
           </h3>
           <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Our modular approach allows us to deliver preliminary insights within 48 hours for urgent product decisions.
+            Whether you need a quick one-week sprint or ongoing research support, our flexible approach adapts to your development pace and business goals.
           </p>
-          <a 
-            href="#cta" 
-            className="inline-flex items-center px-6 py-3 bg-agency-blue text-white font-medium rounded-lg hover:bg-agency-navy transition-colors"
-          >
-            Ask about our rapid insights package
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
         </div>
       </div>
     </section>

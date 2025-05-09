@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  
+  // Function to handle scrolling to top when navigating to a new page
+  const handleNavigate = () => {
+    window.scrollTo(0, 0);
+  };
 
   return (
     <footer className="bg-agency-navy text-white">
@@ -23,9 +28,9 @@ const Footer = () => {
         <AnimatedElement animation="animate-fade-up" delay={200} className="border-t border-gray-800 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400">© {currentYear} RapidResearch. All rights reserved.</p>
           <div className="flex flex-wrap gap-4 mt-4 md:mt-0 justify-center">
-            <Link to="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Terms & Conditions</Link>
-            <Link to="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Privacy Policy</Link>
-            <Link to="/cookies" className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Cookies Policy</Link>
+            <Link to="/terms" onClick={handleNavigate} className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Terms & Conditions</Link>
+            <Link to="/privacy" onClick={handleNavigate} className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Privacy Policy</Link>
+            <Link to="/cookies" onClick={handleNavigate} className="text-gray-400 hover:text-white transition-colors duration-300 text-sm hover:underline">Cookies Policy</Link>
           </div>
         </AnimatedElement>
       </div>

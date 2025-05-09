@@ -49,8 +49,8 @@ const Testimonials = () => {
           staggerDelay={150}
         >
           {resultMetrics.map((item, index) => (
-            <Card key={index} className="bg-white border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden">
-              <CardContent className="p-6">
+            <Card key={index} className="bg-white border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden h-full">
+              <CardContent className="p-6 flex flex-col h-full">
                 <div className="flex items-center justify-center h-12 w-12 rounded-full bg-agency-blue/10 text-agency-blue mb-4 transition-all duration-300 group-hover:scale-110">
                   <CircleCheck className="h-6 w-6" />
                 </div>

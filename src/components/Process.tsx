@@ -1,41 +1,31 @@
 
 import React from "react";
 import { 
-  ClipboardList, 
-  Users, 
-  LineChart, 
-  PenTool
+  Clock, 
+  ArrowsUpFromLine, 
+  Handshake
 } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Process = () => {
-  const steps = [
+  const researchOptions = [
     {
-      icon: <ClipboardList className="h-8 w-8 text-white" />,
+      icon: <Clock className="h-8 w-8 text-white" />,
       color: "bg-agency-blue",
-      day: "Day 1-2",
-      title: "Discovery & Design",
-      description: "We quickly identify research goals, design the study, and set up recruitment for your specific user segments."
+      title: "Rapid Discovery (1-week Sprint)",
+      description: "Identify your product's critical questions and quickly validate ideas. Get clear, actionable insights in just one week, ensuring you can move forward fast."
     },
     {
-      icon: <Users className="h-8 w-8 text-white" />,
+      icon: <ArrowsUpFromLine className="h-8 w-8 text-white" />,
       color: "bg-agency-purple",
-      day: "Day 3-4",
-      title: "Conduct Research",
-      description: "Rapidly execute interviews, testing, and surveys with your target users while your team observes in real-time."
+      title: "Flexible Research (Custom Duration)",
+      description: "Research tailored to your schedule and evolving needs. Easily integrate ongoing user insights into your product development process."
     },
     {
-      icon: <LineChart className="h-8 w-8 text-white" />,
+      icon: <Handshake className="h-8 w-8 text-white" />,
       color: "bg-agency-navy",
-      day: "Day 5",
-      title: "Analysis & Insights",
-      description: "Our expert team analyzes findings and prepares actionable recommendations focused on your most pressing questions."
-    },
-    {
-      icon: <PenTool className="h-8 w-8 text-white" />,
-      color: "bg-agency-blue",
-      day: "Day 5",
-      title: "Action Planning",
-      description: "We present clear insights and collaborate on specific action items to immediately improve your AI product."
+      title: "Long-Term Strategic Partnership",
+      description: "Dedicated research support as your product scales. Regular, deep-dive insights and guidance to continuously inform your key product decisions."
     }
   ];
 
@@ -44,47 +34,50 @@ const Process = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-agency-navy">
-            Flexible Research Options
+            Flexible Research Tailored to Your Pace
           </h2>
           <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
-            From week-long discovery sprints to ongoing collaborative partnerships
+            Rapid 1-week discovery sprints or continuous collaboration—choose what your product needs.
           </p>
         </div>
 
-        {/* Process Steps - Desktop View */}
-        <div className="hidden md:block relative">
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-200 -translate-y-1/2"></div>
-          <div className="grid grid-cols-4 gap-6">
-            {steps.map((step, index) => (
-              <div key={index} className="relative">
-                <div className={`${step.color} h-16 w-16 rounded-full flex items-center justify-center mx-auto z-10 relative shadow-lg`}>
-                  {step.icon}
+        {/* Research Options - Desktop View */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8">
+          {researchOptions.map((option, index) => (
+            <Card key={index} className="border border-gray-200 rounded-xl overflow-hidden shadow-md">
+              <CardHeader className={`${option.color} p-6 flex items-center justify-center`}>
+                <div className="h-16 w-16 rounded-full bg-white/20 flex items-center justify-center">
+                  {option.icon}
                 </div>
-                <div className="mt-6 text-center">
-                  <span className="inline-block px-3 py-1 rounded-full bg-agency-lightBlue text-agency-blue text-sm font-medium mb-2">
-                    {step.day}
-                  </span>
-                  <h3 className="text-lg font-semibold text-agency-navy">{step.title}</h3>
-                  <p className="mt-2 text-gray-600">{step.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+              </CardHeader>
+              <CardContent className="p-6">
+                <CardTitle className="text-xl font-semibold text-agency-navy mb-3">
+                  {option.title}
+                </CardTitle>
+                <CardDescription className="text-gray-600">
+                  {option.description}
+                </CardDescription>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
-        {/* Process Steps - Mobile View */}
+        {/* Research Options - Mobile View */}
         <div className="md:hidden space-y-8">
-          {steps.map((step, index) => (
-            <div key={index} className="flex items-start space-x-4">
-              <div className={`${step.color} h-12 w-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg`}>
-                {step.icon}
+          {researchOptions.map((option, index) => (
+            <div key={index} className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-200">
+              <div className={`${option.color} p-4 flex items-center justify-center`}>
+                <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center">
+                  {option.icon}
+                </div>
               </div>
-              <div>
-                <span className="inline-block px-3 py-1 rounded-full bg-agency-lightBlue text-agency-blue text-sm font-medium mb-2">
-                  {step.day}
-                </span>
-                <h3 className="text-lg font-semibold text-agency-navy">{step.title}</h3>
-                <p className="mt-1 text-gray-600">{step.description}</p>
+              <div className="p-4">
+                <h3 className="text-lg font-semibold text-agency-navy mb-2">
+                  {option.title}
+                </h3>
+                <p className="text-gray-600">
+                  {option.description}
+                </p>
               </div>
             </div>
           ))}

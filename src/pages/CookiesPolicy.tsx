@@ -59,9 +59,9 @@ const CookiesPolicy = () => {
               </p>
               <p className="mt-4">To manage your cookies:</p>
               <ul className="list-disc ml-6 mt-2 space-y-2">
-                <li>In Chrome: Go to Settings > Privacy and Security > Cookies and other site data</li>
-                <li>In Firefox: Go to Preferences > Privacy & Security > Cookies and Site Data</li>
-                <li>In Safari: Go to Preferences > Privacy > Manage Website Data</li>
+                <li>In Chrome: Go to Settings {'->'} Privacy and Security {'->'} Cookies and other site data</li>
+                <li>In Firefox: Go to Preferences {'->'} Privacy &amp; Security {'->'} Cookies and Site Data</li>
+                <li>In Safari: Go to Preferences {'->'} Privacy {'->'} Manage Website Data</li>
               </ul>
               
               <h2 className="text-2xl font-bold text-agency-navy mt-8 mb-4">4. Changes to This Policy</h2>

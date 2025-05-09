@@ -82,15 +82,6 @@ const Process = () => {
             </div>
           ))}
         </div>
-
-        <div className="mt-12 bg-agency-lightBlue rounded-xl p-8 text-center">
-          <h3 className="text-xl md:text-2xl font-bold text-agency-navy mb-4">
-            Tailored to Your Timeline
-          </h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Whether you need a quick one-week sprint or ongoing research support, our flexible approach adapts to your development pace and business goals.
-          </p>
-        </div>
       </div>
     </section>
   );

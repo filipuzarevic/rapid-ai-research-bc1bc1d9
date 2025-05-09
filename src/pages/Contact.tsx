@@ -53,10 +53,18 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Step 1: Store the submission in Supabase - Fix type issue by passing values directly
+      // Ensure all required fields are present and non-optional
+      const submissionData = {
+        name: values.name,
+        company: values.company,
+        email: values.email,
+        message: values.message
+      };
+      
+      // Step 1: Store the submission in Supabase
       const { error: dbError } = await supabase
         .from('contact_submissions')
-        .insert(values); // Pass values directly, not as an array
+        .insert(submissionData);
       
       if (dbError) {
         throw new Error(`Database error: ${dbError.message}`);

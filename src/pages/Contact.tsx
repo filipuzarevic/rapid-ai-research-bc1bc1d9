@@ -53,10 +53,10 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Step 1: Store the submission in Supabase
+      // Step 1: Store the submission in Supabase - Fix type issue by passing values directly
       const { error: dbError } = await supabase
         .from('contact_submissions')
-        .insert([values]);
+        .insert(values); // Pass values directly, not as an array
       
       if (dbError) {
         throw new Error(`Database error: ${dbError.message}`);

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +16,9 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <h1 className="text-xl font-bold text-agency-navy">
+            <Link to="/" className="text-xl font-bold text-agency-navy">
               Rapid<span className="text-agency-purple">Research</span>
-            </h1>
+            </Link>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -30,9 +31,11 @@ const Navbar = () => {
             <a href="#testimonials" className="text-gray-600 hover:text-agency-blue font-medium transition-colors">
               Results
             </a>
-            <Button className="bg-agency-blue hover:bg-agency-navy text-white font-medium">
-              Schedule Consultation
-            </Button>
+            <Link to="/contact">
+              <Button className="bg-agency-blue hover:bg-agency-navy text-white font-medium">
+                Schedule Consultation
+              </Button>
+            </Link>
           </div>
           
           <div className="md:hidden">
@@ -76,9 +79,11 @@ const Navbar = () => {
               Results
             </a>
             <div className="pt-2 pb-3">
-              <Button className="w-full bg-agency-blue hover:bg-agency-navy text-white font-medium">
-                Schedule Consultation
-              </Button>
+              <Link to="/contact" onClick={toggleMenu}>
+                <Button className="w-full bg-agency-blue hover:bg-agency-navy text-white font-medium">
+                  Schedule Consultation
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

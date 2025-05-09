@@ -2,6 +2,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CircleCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Testimonials = () => {
   const resultMetrics = [
@@ -62,13 +63,12 @@ const Testimonials = () => {
           <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-6">
             Don't let competitors outpace you. Discover how our rapid research methodology can accelerate your AI product success.
           </p>
-          <a 
-            href="#contact" 
-            className="inline-flex items-center bg-agency-blue hover:bg-agency-navy text-white font-medium px-6 py-3 rounded-lg transition-colors"
-          >
-            Book Your Strategy Session
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </a>
+          <Link to="/contact">
+            <button className="inline-flex items-center bg-agency-blue hover:bg-agency-navy text-white font-medium px-6 py-3 rounded-lg transition-colors">
+              Book Your Strategy Session
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </button>
+          </Link>
         </div>
       </div>
     </section>

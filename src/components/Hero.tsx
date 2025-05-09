@@ -15,6 +15,11 @@ const Hero = () => {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-center md:space-x-12">
           <div className="md:w-1/2 space-y-6 animate-fade-in">
+            <div className="inline-flex items-center px-3 py-1 rounded-full border border-agency-blue/30 bg-agency-blue/5 text-agency-blue text-sm font-medium">
+              <span className="flex h-2 w-2 rounded-full bg-agency-blue mr-2 animate-pulse"></span>
+              Time-critical insights for AI startups
+            </div>
+            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-agency-navy">
               User Insights <br className="hidden sm:block" />
               <span className="text-agency-blue">Make or Break</span> <br className="hidden sm:block" />
@@ -22,7 +27,7 @@ const Hero = () => {
             </h1>
             
             <p className="text-lg md:text-xl text-gray-600">
-              In the rapidly evolving AI landscape, understanding your users isn't just important—it's the critical difference between success and failure. Get actionable insights in just one week.
+              In today's AI race, understanding your users isn't optional—it's the decisive factor between market leadership and obsolescence. Get actionable insights in just one week that deliver measurable business outcomes.
             </p>
             
             <div className="flex flex-col sm:flex-row sm:items-center space-y-4 sm:space-y-0 sm:space-x-4 pt-4">

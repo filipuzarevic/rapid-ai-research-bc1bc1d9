@@ -7,8 +7,7 @@ import {
   Clipboard, 
   Eye, 
   BarChart3,
-  MessagesSquare,
-  ArrowUpRight
+  MessagesSquare
 } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -72,16 +71,6 @@ const Services = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
-        
-        <div className="mt-12 text-center">
-          <a 
-            href="#cta" 
-            className="inline-flex items-center text-agency-blue hover:text-agency-navy font-semibold transition-colors group"
-          >
-            View our complete methodology
-            <ArrowUpRight className="ml-1 h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-          </a>
         </div>
       </div>
     </section>

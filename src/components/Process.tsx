@@ -50,13 +50,13 @@ const Process = () => {
           staggerDelay={200}
         >
           {researchOptions.map((option, index) => (
-            <Card key={index} className="border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+            <Card key={index} className="border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
               <CardHeader className={`${option.color} p-6 flex items-center justify-center group`}>
                 <div className="h-16 w-16 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110">
                   {option.icon}
                 </div>
               </CardHeader>
-              <CardContent className="p-6">
+              <CardContent className="p-6 flex-grow flex flex-col">
                 <CardTitle className="text-xl font-semibold text-agency-navy mb-3">
                   {option.title}
                 </CardTitle>
@@ -75,13 +75,13 @@ const Process = () => {
           staggerDelay={150}
         >
           {researchOptions.map((option, index) => (
-            <div key={index} className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300">
+            <div key={index} className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
               <div className={`${option.color} p-4 flex items-center justify-center group`}>
                 <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110">
                   {option.icon}
                 </div>
               </div>
-              <div className="p-4">
+              <div className="p-4 flex-grow">
                 <h3 className="text-lg font-semibold text-agency-navy mb-2">
                   {option.title}
                 </h3>

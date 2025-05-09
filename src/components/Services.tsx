@@ -65,14 +65,14 @@ const Services = () => {
           staggerDelay={100}
         >
           {services.map((service, index) => (
-            <Card key={index} className="border-gray-200 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
-              <CardHeader>
+            <Card key={index} className="border-gray-200 hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
+              <CardHeader className="h-auto">
                 <div className="p-2 bg-agency-blue/10 rounded-lg w-fit mb-4 transition-all duration-300 group-hover:bg-agency-blue/20">
                   {service.icon}
                 </div>
                 <CardTitle className="text-agency-navy">{service.title}</CardTitle>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <CardDescription className="text-gray-600">{service.description}</CardDescription>
               </CardContent>
             </Card>

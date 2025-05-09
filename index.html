@@ -25,6 +25,18 @@
       #gpteng-select-edit-btn {
         display: none !important;
       }
+      /* Additional selectors to ensure all possible Lovable UI elements are hidden */
+      .lovable-edit-button,
+      [data-lovable-edit="true"],
+      [id*="lovable"],
+      [class*="lovable"],
+      [id*="gpteng"],
+      [class*="gpteng"] {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+      }
     </style>
   </head>
 

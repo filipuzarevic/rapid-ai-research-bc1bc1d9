@@ -48,13 +48,13 @@ const Features = () => {
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
+              className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
             >
-              <div className="flex items-start">
-                <div className="flex-shrink-0 p-2 bg-agency-lightBlue rounded-lg">
+              <div className="flex h-full">
+                <div className="flex-shrink-0 p-2 bg-agency-lightBlue rounded-lg h-fit">
                   {feature.icon}
                 </div>
-                <div className="ml-4">
+                <div className="ml-4 flex-1">
                   <h3 className="text-xl font-semibold text-agency-navy">{feature.title}</h3>
                   <p className="mt-2 text-gray-600">{feature.description}</p>
                 </div>

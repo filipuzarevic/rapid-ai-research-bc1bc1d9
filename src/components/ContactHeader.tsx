@@ -6,7 +6,7 @@ import AnimatedElement from "@/components/ui/animated-element";
 
 const ContactHeader = () => {
   return (
-    <>
+    <div className="mb-8">
       <Link 
         to="/" 
         className="inline-flex items-center text-agency-purple hover:text-agency-navy transition-colors duration-300 mb-6 group"
@@ -15,21 +15,18 @@ const ContactHeader = () => {
         Back to home
       </Link>
       
-      <div className="mb-12">
-        <AnimatedElement animation="animate-fade-up" delay={100} className="text-center mb-4">
-          <h1 className="text-3xl md:text-5xl font-bold text-agency-navy mb-4 relative inline-block">
-            <span className="relative z-10">Get in Touch</span>
-            <div className="absolute -bottom-2 left-0 w-full h-2 bg-agency-purple/20 rounded-full transform -rotate-1"></div>
-          </h1>
-        </AnimatedElement>
+      <AnimatedElement animation="animate-fade-up" delay={100}>
+        <h1 className="text-3xl md:text-5xl font-bold text-agency-navy mb-3 relative">
+          <span className="bg-gradient-to-r from-agency-navy to-agency-purple bg-clip-text text-transparent">Get in Touch</span>
+        </h1>
         
-        <AnimatedElement animation="animate-fade-up" delay={200} className="text-center">
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-6">
-            Fill out the form below and we'll respond to your inquiry within 24 hours.
-          </p>
-        </AnimatedElement>
-      </div>
-    </>
+        <p className="text-lg text-gray-600 max-w-2xl mb-3">
+          Fill out the form below and we'll respond to your inquiry within 24 hours.
+        </p>
+        
+        <div className="w-20 h-1 bg-gradient-to-r from-agency-purple to-agency-blue rounded-full mt-2"></div>
+      </AnimatedElement>
+    </div>
   );
 };
 

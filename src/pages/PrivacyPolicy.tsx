@@ -5,19 +5,32 @@ import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import AnimatedElement from "@/components/ui/animated-element";
+import { ArrowLeft } from "lucide-react";
 
 const PrivacyPolicy = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen flex flex-col">
+      {/* Background gradient that extends under the navbar */}
+      <div className="absolute inset-0 bg-gradient-to-br from-agency-purple/5 via-white to-agency-lightBlue/20 pointer-events-none z-0"></div>
+      
       <Navbar />
       <div className="flex-grow">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-28">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-28 relative z-10">
           <AnimatedElement animation="animate-fade-up">
-            <h1 className="text-3xl md:text-4xl font-bold text-agency-navy mb-8">
-              Privacy Policy
+            <Link 
+              to="/" 
+              className="inline-flex items-center text-agency-purple hover:text-agency-navy transition-colors duration-300 mb-6 group"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+              Back to home
+            </Link>
+            
+            <h1 className="text-3xl md:text-4xl font-bold text-agency-navy mb-4 relative">
+              <span className="bg-gradient-to-r from-agency-navy to-agency-purple bg-clip-text text-transparent">Privacy Policy</span>
             </h1>
+            <div className="w-20 h-1 bg-gradient-to-r from-agency-purple to-agency-blue rounded-full mb-8"></div>
             
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-gray-700 mb-8">
@@ -93,7 +106,7 @@ const PrivacyPolicy = () => {
               <div className="mt-12 text-center">
                 <p className="text-gray-500 mb-6">Last updated: {currentYear}</p>
                 <Link to="/">
-                  <Button className="bg-agency-blue hover:bg-agency-navy text-white">
+                  <Button className="bg-gradient-to-r from-agency-blue to-agency-purple hover:brightness-110 transition-all text-white">
                     Return to Home
                   </Button>
                 </Link>

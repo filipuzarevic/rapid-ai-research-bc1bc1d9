@@ -1,24 +1,35 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import AnimatedElement from "@/components/ui/animated-element";
-import { Info } from "lucide-react";
+import { Info, ArrowLeft } from "lucide-react";
 
 const CookiesPolicy = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen flex flex-col">
+      {/* Background gradient that extends under the navbar */}
+      <div className="absolute inset-0 bg-gradient-to-br from-agency-purple/5 via-white to-agency-lightBlue/20 pointer-events-none z-0"></div>
+      
       <Navbar />
       <div className="flex-grow">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-28">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pt-28 relative z-10">
           <AnimatedElement animation="animate-fade-up">
-            <h1 className="text-3xl md:text-4xl font-bold text-agency-navy mb-8">
-              Cookies Policy
+            <Link 
+              to="/" 
+              className="inline-flex items-center text-agency-purple hover:text-agency-navy transition-colors duration-300 mb-6 group"
+            >
+              <ArrowLeft className="mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+              Back to home
+            </Link>
+            
+            <h1 className="text-3xl md:text-4xl font-bold text-agency-navy mb-4 relative">
+              <span className="bg-gradient-to-r from-agency-navy to-agency-purple bg-clip-text text-transparent">Cookies Policy</span>
             </h1>
+            <div className="w-20 h-1 bg-gradient-to-r from-agency-purple to-agency-blue rounded-full mb-8"></div>
             
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-gray-700 mb-8">
@@ -69,7 +80,7 @@ const CookiesPolicy = () => {
                 We may update this Cookies Policy from time to time. Any changes will be posted on this page, so please review it periodically.
               </p>
               
-              <div className="bg-blue-50 p-5 rounded-lg mt-8 flex items-start">
+              <div className="bg-gradient-to-r from-agency-blue/10 to-agency-purple/10 p-5 rounded-lg mt-8 flex items-start">
                 <Info className="text-agency-blue mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-xl mb-2">Contact</h3>
@@ -84,7 +95,7 @@ const CookiesPolicy = () => {
               <div className="mt-12 text-center">
                 <p className="text-gray-500 mb-6">Last updated: {currentYear}</p>
                 <Link to="/">
-                  <Button className="bg-agency-blue hover:bg-agency-navy text-white">
+                  <Button className="bg-gradient-to-r from-agency-blue to-agency-purple hover:brightness-110 transition-all text-white">
                     Return to Home
                   </Button>
                 </Link>

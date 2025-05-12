@@ -60,9 +60,9 @@ const Hero = () => {
                 className="w-full h-auto object-cover rounded-lg overflow-hidden shadow-xl transition-transform duration-700 hover:scale-105"
               />
               <AnimatedElement animation="animate-fade-up" delay={600} className="absolute -bottom-6 -right-6">
-                <div className="backdrop-blur-md bg-white/10 p-4 rounded-lg shadow-lg border border-white/20 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-white">
-                  <p className="font-semibold text-lg">Flexible Collaboration</p>
-                  <p className="text-gray-100/80">From continuous support to quick sprints</p>
+                <div className="backdrop-blur-md bg-white/20 p-5 rounded-xl shadow-lg border border-white/30 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-white">
+                  <p className="font-semibold text-lg text-white drop-shadow-sm">Tailored to You</p>
+                  <p className="text-white font-medium drop-shadow-sm">From rapid 5-day sprints to long-term research support that scales with your AI product.</p>
                 </div>
               </AnimatedElement>
             </div>

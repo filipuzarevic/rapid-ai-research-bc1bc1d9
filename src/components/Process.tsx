@@ -5,7 +5,6 @@ import {
   ArrowsUpFromLine, 
   Handshake
 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import AnimatedElement from "@/components/ui/animated-element";
 import StaggeredChildren from "@/components/ui/staggered-children";
 
@@ -32,7 +31,7 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-16 bg-white" id="process">
+    <section className="py-16 bg-gradient-to-b from-white to-agency-gray/30" id="process">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up" className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-agency-navy">
@@ -43,46 +42,23 @@ const Process = () => {
           </p>
         </AnimatedElement>
 
-        {/* Research Options - Desktop View */}
         <StaggeredChildren 
-          className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8"
           animation="animate-fade-up"
           staggerDelay={200}
         >
           {researchOptions.map((option, index) => (
-            <Card key={index} className="border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
-              <CardHeader className={`${option.color} p-6 flex items-center justify-center group`}>
+            <div 
+              key={index} 
+              className="group overflow-hidden flex flex-col h-full transition-all duration-300 hover:-translate-y-1"
+            >
+              <div className={`${option.color} p-6 flex items-center justify-center rounded-t-xl`}>
                 <div className="h-16 w-16 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110">
                   {option.icon}
                 </div>
-              </CardHeader>
-              <CardContent className="p-6 flex-grow flex flex-col">
-                <CardTitle className="text-xl font-semibold text-agency-navy mb-3">
-                  {option.title}
-                </CardTitle>
-                <CardDescription className="text-gray-600">
-                  {option.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
-          ))}
-        </StaggeredChildren>
-
-        {/* Research Options - Mobile View */}
-        <StaggeredChildren 
-          className="md:hidden space-y-8"
-          animation="animate-fade-up"
-          staggerDelay={150}
-        >
-          {researchOptions.map((option, index) => (
-            <div key={index} className="bg-white shadow-md rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300 flex flex-col h-full">
-              <div className={`${option.color} p-4 flex items-center justify-center group`}>
-                <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110">
-                  {option.icon}
-                </div>
               </div>
-              <div className="p-4 flex-grow">
-                <h3 className="text-lg font-semibold text-agency-navy mb-2">
+              <div className="p-6 flex-grow bg-white border-b border-x border-gray-100 rounded-b-xl">
+                <h3 className="text-xl font-semibold text-agency-navy mb-3">
                   {option.title}
                 </h3>
                 <p className="text-gray-600">

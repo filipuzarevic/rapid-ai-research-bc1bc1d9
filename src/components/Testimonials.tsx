@@ -1,6 +1,5 @@
 
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, CircleCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedElement from "@/components/ui/animated-element";
@@ -31,7 +30,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-16 bg-agency-gray" id="testimonials">
+    <section className="py-16 bg-gradient-to-b from-agency-gray/30 to-white" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up" className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-agency-navy">
@@ -49,8 +48,8 @@ const Testimonials = () => {
           staggerDelay={150}
         >
           {resultMetrics.map((item, index) => (
-            <Card key={index} className="bg-white border-0 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 overflow-hidden h-full">
-              <CardContent className="p-6 flex flex-col h-full">
+            <div key={index} className="group hover:-translate-y-1 transition-all duration-300">
+              <div className="p-6 h-full bg-gradient-to-br from-white to-agency-lightBlue/20 rounded-lg">
                 <div className="flex items-center justify-center h-12 w-12 rounded-full bg-agency-blue/10 text-agency-blue mb-4 transition-all duration-300 group-hover:scale-110">
                   <CircleCheck className="h-6 w-6" />
                 </div>
@@ -59,8 +58,8 @@ const Testimonials = () => {
                 </div>
                 <h3 className="text-lg font-semibold text-agency-navy mb-2">{item.title}</h3>
                 <p className="text-gray-600">{item.description}</p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           ))}
         </StaggeredChildren>
 

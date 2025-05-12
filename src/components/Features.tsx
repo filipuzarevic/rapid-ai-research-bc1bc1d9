@@ -41,22 +41,22 @@ const Features = () => {
         </AnimatedElement>
 
         <StaggeredChildren 
-          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-10"
           animation="animate-fade-up"
           staggerDelay={150}
         >
           {features.map((feature, index) => (
             <div 
               key={index}
-              className="bg-white p-6 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full flex flex-col"
+              className="group hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="flex h-full">
+              <div className="flex space-x-5">
                 <div className="flex-shrink-0 p-2 bg-agency-lightBlue rounded-lg h-fit">
                   {feature.icon}
                 </div>
-                <div className="ml-4 flex-1">
-                  <h3 className="text-xl font-semibold text-agency-navy">{feature.title}</h3>
-                  <p className="mt-2 text-gray-600">{feature.description}</p>
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-agency-navy mb-2">{feature.title}</h3>
+                  <p className="text-gray-600">{feature.description}</p>
                 </div>
               </div>
             </div>
@@ -64,8 +64,9 @@ const Features = () => {
         </StaggeredChildren>
         
         <AnimatedElement animation="animate-fade-up" delay={400} className="mt-16">
-          <div className="bg-gradient-to-r from-agency-blue to-agency-purple rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-            <div className="px-6 py-10 sm:px-10 sm:py-12 md:py-16 text-center md:text-left md:flex md:items-center md:justify-between">
+          <div className="bg-gradient-to-r from-agency-blue to-agency-purple rounded-xl overflow-hidden relative">
+            <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzRjMC0yLjIgMS44LTQgNC00czQgMS44IDQgNC0xLjggNC00IDQtNC0xLjgtNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-10"></div>
+            <div className="px-6 py-10 sm:px-10 sm:py-12 md:py-16 text-center md:text-left md:flex md:items-center md:justify-between relative z-10">
               <div className="md:flex-1">
                 <h3 className="text-2xl md:text-3xl font-bold text-white">
                   Time is critical in AI product development
@@ -77,7 +78,7 @@ const Features = () => {
               <div className="mt-8 md:mt-0 md:ml-8">
                 <a 
                   href="#cta" 
-                  className="inline-block px-6 py-3 bg-white text-agency-blue font-semibold rounded-lg shadow-md hover:bg-gray-50 transition-all duration-300 hover:scale-105"
+                  className="inline-block px-6 py-3 bg-white text-agency-blue font-semibold rounded-lg hover:bg-gray-50 transition-all duration-300 hover:scale-105"
                 >
                   Get Started Now
                 </a>

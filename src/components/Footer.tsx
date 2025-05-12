@@ -12,7 +12,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-agency-navy text-white">
+    <footer className="bg-gradient-to-b from-agency-navy/95 to-agency-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <AnimatedElement animation="animate-fade-up" className="flex flex-col items-center md:flex-row md:justify-between">
           <div className="mb-6 md:mb-0">

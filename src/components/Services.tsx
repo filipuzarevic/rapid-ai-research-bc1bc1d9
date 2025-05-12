@@ -9,7 +9,6 @@ import {
   BarChart3,
   MessagesSquare
 } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import AnimatedElement from "@/components/ui/animated-element";
 import StaggeredChildren from "@/components/ui/staggered-children";
 
@@ -48,7 +47,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-16 bg-agency-gray" id="services">
+    <section className="py-16 bg-gradient-to-b from-agency-gray/50 to-white" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up" className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-agency-navy">
@@ -65,17 +64,17 @@ const Services = () => {
           staggerDelay={100}
         >
           {services.map((service, index) => (
-            <Card key={index} className="border-gray-200 hover:shadow-md transition-all duration-300 hover:-translate-y-1 h-full">
-              <CardHeader className="h-auto">
-                <div className="p-2 bg-agency-blue/10 rounded-lg w-fit mb-4 transition-all duration-300 group-hover:bg-agency-blue/20">
+            <div key={index} className="group hover:-translate-y-1 transition-all duration-300">
+              <div className="flex items-start space-x-4">
+                <div className="p-2 bg-agency-blue/10 rounded-lg h-fit transition-all duration-300 group-hover:bg-agency-blue/20">
                   {service.icon}
                 </div>
-                <CardTitle className="text-agency-navy">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-grow">
-                <CardDescription className="text-gray-600">{service.description}</CardDescription>
-              </CardContent>
-            </Card>
+                <div>
+                  <h3 className="text-xl font-semibold text-agency-navy mb-2">{service.title}</h3>
+                  <p className="text-gray-600">{service.description}</p>
+                </div>
+              </div>
+            </div>
           ))}
         </StaggeredChildren>
       </div>

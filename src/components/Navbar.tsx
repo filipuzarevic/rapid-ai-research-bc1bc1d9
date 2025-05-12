@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -11,7 +11,8 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
   // If props aren't provided, use internal state
-  const [internalIsMenuOpen, setInternalIsMenuOpen] = React.useState(false);
+  const [internalIsMenuOpen, setInternalIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   
   const isOpen = isMenuOpen !== undefined ? isMenuOpen : internalIsMenuOpen;
@@ -20,6 +21,25 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
   // Check if we are on the home page
   const isHomePage = location.pathname === "/";
 
+  // Add scroll event listener to track scroll position
+  useEffect(() => {
+    const handleScroll = () => {
+      // For homepage, consider scrolled state after 100px
+      // For other pages, consider scrolled immediately (they have light backgrounds)
+      const scrollThreshold = isHomePage ? 100 : 0;
+      setScrolled(window.scrollY > scrollThreshold);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    // Initialize correct state on component mount
+    handleScroll();
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [isHomePage]);
+
   // Create navigation links based on current page
   const getNavLink = (section: string, label: string) => {
     if (isHomePage) {
@@ -27,7 +47,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
       return (
         <a 
           href={`#${section}`} 
-          className="text-gray-100 hover:text-white font-medium transition-colors"
+          className={`font-medium transition-colors ${scrolled ? 'text-gray-700 hover:text-agency-navy' : 'text-gray-100 hover:text-white'}`}
         >
           {label}
         </a>
@@ -37,7 +57,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
       return (
         <Link 
           to={`/#${section}`} 
-          className="text-gray-100 hover:text-white font-medium transition-colors"
+          className="text-gray-700 hover:text-agency-navy font-medium transition-colors"
         >
           {label}
         </Link>
@@ -45,19 +65,23 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
     }
   };
 
-  // For homepage, we want a transparent navbar that blends with hero
+  // For homepage, we want a transparent navbar that blends with hero,
+  // but becomes white/transparent when scrolled
   const navbarClasses = isHomePage 
-    ? "fixed w-full bg-transparent z-50" 
+    ? `fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-sm border-b border-gray-200' : 'bg-transparent'}` 
     : "fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-200";
 
-  // Text colors based on homepage or other pages
-  const logoClasses = isHomePage 
-    ? "text-xl font-bold text-white" 
-    : "text-xl font-bold text-agency-navy";
+  // Text colors based on homepage scroll position or other pages
+  const logoClasses = isHomePage && !scrolled
+    ? "text-xl font-bold text-white transition-colors duration-300" 
+    : "text-xl font-bold text-agency-navy transition-colors duration-300";
 
-  const accentClasses = isHomePage
-    ? "text-white" 
-    : "text-agency-purple";
+  const accentClasses = isHomePage && !scrolled
+    ? "text-white transition-colors duration-300" 
+    : "text-agency-purple transition-colors duration-300";
+
+  // Icon color for mobile menu toggle
+  const menuIconColor = isHomePage && !scrolled ? "text-white" : "text-gray-700";
 
   return (
     <nav className={navbarClasses}>
@@ -74,7 +98,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
             {getNavLink("process", "Our Process")}
             {getNavLink("testimonials", "Results")}
             <Link to="/contact">
-              <Button className={isHomePage ? "bg-white hover:bg-gray-100 text-agency-blue font-medium" : "bg-agency-blue hover:bg-agency-navy text-white font-medium"}>
+              <Button className={isHomePage && !scrolled ? "bg-white hover:bg-gray-100 text-agency-blue font-medium" : "bg-agency-blue hover:bg-agency-navy text-white font-medium"}>
                 Schedule Consultation
               </Button>
             </Link>
@@ -83,7 +107,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
           <div className="md:hidden">
             <button
               onClick={handleToggle}
-              className={`inline-flex items-center justify-center p-2 rounded-md ${isHomePage ? "text-white" : "text-gray-700"} hover:text-agency-blue focus:outline-none`}
+              className={`inline-flex items-center justify-center p-2 rounded-md ${menuIconColor} hover:text-agency-blue focus:outline-none transition-colors duration-300`}
             >
               {isOpen ? (
                 <X className="block h-6 w-6" aria-hidden="true" />

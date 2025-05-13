@@ -3,10 +3,10 @@ import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
-import TrustedBy from "@/components/TrustedBy";
 import Services from "@/components/Services";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
+import TrustedBy from "@/components/TrustedBy";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -27,10 +27,10 @@ const Index = () => {
       <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <Hero />
       <Features />
-      <TrustedBy />
       <Services />
       <Process />
       <Testimonials />
+      <TrustedBy />
       <Footer />
     </div>
   );

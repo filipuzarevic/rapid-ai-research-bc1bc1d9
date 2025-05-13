@@ -11,7 +11,7 @@ const TrustedBy = () => {
     },
     {
       name: "Polling.com",
-      logo: "/lovable-uploads/7cfa34b6-69b6-49ee-91b3-402bda4553e6.png"
+      logo: "/lovable-uploads/2faea0e5-f3cf-467a-9f64-74d62cb7a42d.png"
     }
   ];
 

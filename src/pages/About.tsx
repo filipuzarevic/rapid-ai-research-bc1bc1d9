@@ -36,19 +36,11 @@ const About = () => {
                 
                 <div className="space-y-4 text-gray-700">
                   <p>
-                    RapidResearch was founded with one mission: to help AI startups move faster and smarter by understanding their users deeply. Behind this service is a seasoned UX researcher with 15 years of experience in turning complex user behavior into clear business outcomes.
+                    RapidResearch was created to help AI startups move faster and smarter by understanding their users. Behind the scenes is a senior UX researcher with 15 years of experience turning complex behavior into business outcomes.
                   </p>
                   
                   <p>
-                    With a PhD in psychology and years spent leading product research in high-velocity tech environments, I've seen firsthand how critical fast, focused research is to a product's success — especially in the high-stakes, fast-moving world of AI.
-                  </p>
-                  
-                  <p>
-                    I've run everything from rapid 5-day discovery sprints to multi-quarter strategic research programs. My work has directly contributed to measurable growth, including double-digit revenue lifts and accelerated product-market fit, by helping teams make better, evidence-based decisions.
-                  </p>
-                  
-                  <p>
-                    RapidResearch is built for founders who want to move fast without guessing.
+                    With a PhD in psychology and a track record in fast-paced tech, I've led everything from 5-day sprints to strategic, multi-quarter studies. My work has contributed to measurable revenue growth and faster product-market fit—by helping teams make better decisions, faster.
                   </p>
                 </div>
               </div>
@@ -65,15 +57,11 @@ const About = () => {
             
             <div className="space-y-4 text-gray-700">
               <p>
-                Startups don't fail because of bad tech. They fail because they build the wrong thing. My role is to make sure that doesn't happen to you.
+                Startups rarely fail from lack of tech—they fail from building the wrong thing. My job is to make sure that doesn't happen to you.
               </p>
               
               <p>
-                Whether you're refining your MVP, validating a new feature, or scaling a successful product, you get access to enterprise-level research strategy, without the overhead.
-              </p>
-              
-              <p>
-                When you work with RapidResearch, you're not hiring a generalist agency. You're partnering with someone who's embedded research into the heart of product strategy at scale, and knows how to adapt that to the pace and pressure of startup life.
+                Whether you're validating an idea or scaling a proven product, RapidResearch gives you expert research strategy without the agency fluff.
               </p>
             </div>
           </div>

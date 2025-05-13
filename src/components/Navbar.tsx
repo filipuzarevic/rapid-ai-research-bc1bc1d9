@@ -94,6 +94,12 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
+            <Link 
+              to="/about" 
+              className={`font-medium transition-colors ${isHomePage && !scrolled ? 'text-gray-100 hover:text-white' : 'text-gray-700 hover:text-agency-navy'}`}
+            >
+              About
+            </Link>
             {getNavLink("services", "Services")}
             {getNavLink("process", "Our Process")}
             {getNavLink("testimonials", "Results")}
@@ -123,6 +129,13 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 animate-fade-in">
           <div className="pt-2 pb-4 space-y-1 px-4">
+            <Link
+              to="/about"
+              className="block py-2 text-base font-medium text-gray-600 hover:text-agency-blue"
+              onClick={handleToggle}
+            >
+              About
+            </Link>
             {isHomePage ? (
               <>
                 <a

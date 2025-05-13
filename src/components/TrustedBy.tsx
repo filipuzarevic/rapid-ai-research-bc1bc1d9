@@ -7,11 +7,13 @@ const TrustedBy = () => {
   const companies = [
     {
       name: "Kiwi.com",
-      logo: "/lovable-uploads/c9d1df73-0b48-47e6-99ae-c91819f42333.png"
+      logo: "/lovable-uploads/c9d1df73-0b48-47e6-99ae-c91819f42333.png",
+      url: "https://www.kiwi.com"
     },
     {
       name: "Polling.com",
-      logo: "/lovable-uploads/2faea0e5-f3cf-467a-9f64-74d62cb7a42d.png"
+      logo: "/lovable-uploads/2faea0e5-f3cf-467a-9f64-74d62cb7a42d.png",
+      url: "https://www.polling.com"
     }
   ];
 
@@ -34,13 +36,18 @@ const TrustedBy = () => {
               key={index}
               className="group hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="flex items-center justify-center h-full">
+              <a 
+                href={company.url} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center justify-center h-full"
+              >
                 <img 
                   src={company.logo} 
                   alt={`${company.name} logo`} 
-                  className="max-h-16 md:max-h-20 w-auto object-contain"
+                  className="max-h-10 md:max-h-12 w-auto object-contain"
                 />
-              </div>
+              </a>
             </div>
           ))}
         </StaggeredChildren>

@@ -44,7 +44,7 @@ const About = () => {
                   </p>
                   
                   <p>
-                    I've run everything from rapid 5-day discovery sprints to multi-quarter strategic research programs. My work has directly contributed to measurable growth — including double-digit revenue lifts and accelerated product-market fit — by helping teams make better, evidence-based decisions.
+                    I've run everything from rapid 5-day discovery sprints to multi-quarter strategic research programs. My work has directly contributed to measurable growth, including double-digit revenue lifts and accelerated product-market fit, by helping teams make better, evidence-based decisions.
                   </p>
                   
                   <p>

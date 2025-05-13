@@ -97,6 +97,9 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
             {getNavLink("services", "Services")}
             {getNavLink("process", "Our Process")}
             {getNavLink("testimonials", "Results")}
+            <Link to="/about" className={isHomePage && !scrolled ? "text-gray-100 hover:text-white font-medium transition-colors" : "text-gray-700 hover:text-agency-navy font-medium transition-colors"}>
+              About
+            </Link>
             <Link to="/contact">
               <Button className={isHomePage && !scrolled ? "bg-white hover:bg-gray-100 text-agency-blue font-medium" : "bg-agency-blue hover:bg-agency-navy text-white font-medium"}>
                 Schedule Consultation
@@ -172,6 +175,13 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
                 </Link>
               </>
             )}
+            <Link
+              to="/about"
+              className="block py-2 text-base font-medium text-gray-600 hover:text-agency-blue"
+              onClick={handleToggle}
+            >
+              About
+            </Link>
             <div className="pt-2 pb-3">
               <Link to="/contact" onClick={handleToggle}>
                 <Button className="w-full bg-agency-blue hover:bg-agency-navy text-white font-medium">

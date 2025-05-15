@@ -27,8 +27,8 @@ const ContactFormFields = ({ isSubmitting }: ContactFormFieldsProps) => {
         control={form.control}
         name="name"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel>Full Name</FormLabel>
+          <FormItem className="mb-4">
+            <FormLabel className="mb-2 block text-gray-700 font-medium">Full Name</FormLabel>
             <FormControl>
               <Input 
                 placeholder="Your name" 
@@ -45,8 +45,8 @@ const ContactFormFields = ({ isSubmitting }: ContactFormFieldsProps) => {
         control={form.control}
         name="company"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel>Company</FormLabel>
+          <FormItem className="mb-4">
+            <FormLabel className="mb-2 block text-gray-700 font-medium">Company</FormLabel>
             <FormControl>
               <Input 
                 placeholder="Your company name" 
@@ -63,8 +63,8 @@ const ContactFormFields = ({ isSubmitting }: ContactFormFieldsProps) => {
         control={form.control}
         name="email"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel>Email</FormLabel>
+          <FormItem className="mb-4">
+            <FormLabel className="mb-2 block text-gray-700 font-medium">Email</FormLabel>
             <FormControl>
               <Input 
                 placeholder="Your email address" 
@@ -81,8 +81,8 @@ const ContactFormFields = ({ isSubmitting }: ContactFormFieldsProps) => {
         control={form.control}
         name="message"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel>Message</FormLabel>
+          <FormItem className="mb-4">
+            <FormLabel className="mb-2 block text-gray-700 font-medium">Message</FormLabel>
             <FormControl>
               <Textarea 
                 placeholder="How can we help you?"
@@ -95,10 +95,10 @@ const ContactFormFields = ({ isSubmitting }: ContactFormFieldsProps) => {
         )}
       />
       
-      <div className="pt-2">
+      <div className="pt-4">
         <Button 
           type="submit" 
-          className="w-full bg-gradient-to-r from-agency-purple to-agency-blue hover:from-agency-blue hover:to-agency-purple text-white py-6 h-auto transition-all duration-500 hover:shadow-lg"
+          className="w-full bg-gradient-to-r from-[#F97316] to-[#F59E0B] hover:from-[#F59E0B] hover:to-[#F97316] text-white py-6 h-auto transition-all duration-500 hover:shadow-lg"
           disabled={isSubmitting}
         >
           {isSubmitting ? (

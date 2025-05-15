@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Info } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 interface NavbarProps {
@@ -94,14 +94,18 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
+            {/* Added About Link first in the navigation */}
+            <Link to="/about" className={`${isHomePage && !scrolled ? "text-gray-100 hover:text-white" : "text-gray-700 hover:text-agency-navy"} font-medium transition-colors flex items-center gap-1 rounded-md px-3 py-1.5 bg-opacity-10 hover:bg-opacity-20 ${location.pathname === "/about" ? "bg-agency-purple/10" : ""}`}>
+              <Info className="h-4 w-4" />
+              <span>About</span>
+            </Link>
             {getNavLink("services", "Services")}
             {getNavLink("process", "Our Process")}
             {getNavLink("testimonials", "Results")}
-            <Link to="/about" className={isHomePage && !scrolled ? "text-gray-100 hover:text-white font-medium transition-colors" : "text-gray-700 hover:text-agency-navy font-medium transition-colors"}>
-              About
-            </Link>
             <Link to="/contact">
-              <Button className={isHomePage && !scrolled ? "bg-white hover:bg-gray-100 text-agency-blue font-medium" : "bg-agency-blue hover:bg-agency-navy text-white font-medium"}>
+              <Button className={isHomePage && !scrolled 
+                ? "bg-white hover:bg-gray-100 text-agency-blue font-medium" 
+                : "bg-[#F97316] hover:bg-[#F59E0B] text-white font-medium"}>
                 Schedule Consultation
               </Button>
             </Link>
@@ -126,6 +130,16 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
       {isOpen && (
         <div className="md:hidden bg-white border-t border-gray-200 animate-fade-in">
           <div className="pt-2 pb-4 space-y-1 px-4">
+            {/* About link first in mobile menu */}
+            <Link
+              to="/about"
+              className="block py-2 text-base font-medium text-agency-blue hover:text-agency-purple flex items-center"
+              onClick={handleToggle}
+            >
+              <Info className="h-4 w-4 mr-2" />
+              About
+            </Link>
+            
             {isHomePage ? (
               <>
                 <a
@@ -175,16 +189,10 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
                 </Link>
               </>
             )}
-            <Link
-              to="/about"
-              className="block py-2 text-base font-medium text-gray-600 hover:text-agency-blue"
-              onClick={handleToggle}
-            >
-              About
-            </Link>
+            
             <div className="pt-2 pb-3">
               <Link to="/contact" onClick={handleToggle}>
-                <Button className="w-full bg-agency-blue hover:bg-agency-navy text-white font-medium">
+                <Button className="w-full bg-[#F97316] hover:bg-[#F59E0B] text-white font-medium">
                   Schedule Consultation
                 </Button>
               </Link>

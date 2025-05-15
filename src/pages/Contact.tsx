@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ContactHeader from "@/components/ContactHeader";
@@ -8,10 +7,24 @@ import AnimatedElement from "@/components/ui/animated-element";
 
 const Contact = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const formRef = useRef<HTMLDivElement>(null);
 
   // Close menu when navigating to this page
   useEffect(() => {
     setIsMenuOpen(false);
+    
+    // Scroll to the form with a slight delay to ensure proper rendering
+    const timer = setTimeout(() => {
+      // If URL has #form hash, scroll to the form
+      if (window.location.hash === "#form" && formRef.current) {
+        formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        // Otherwise, scroll to top
+        window.scrollTo(0, 0);
+      }
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   // Share menu state with Navbar
@@ -42,9 +55,15 @@ const Contact = () => {
             <ContactHeader />
           </AnimatedElement>
 
-          <AnimatedElement animation="animate-fade-up" delay={200} className="relative">
-            {/* Remove card styling, use subtle background instead */}
-            <div className="bg-white/60 backdrop-blur-sm p-6 md:p-8 rounded-xl border border-gray-100/80 shadow-sm">
+          <AnimatedElement 
+            animation="animate-fade-up" 
+            delay={200} 
+            className="relative"
+            ref={formRef} 
+            id="form"
+          >
+            {/* Reduced padding, removed multiple borders for cleaner mobile display */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-sm">
               <ContactForm />
             </div>
           </AnimatedElement>

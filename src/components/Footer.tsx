@@ -2,6 +2,7 @@
 import React from "react";
 import AnimatedElement from "@/components/ui/animated-element";
 import { Link } from "react-router-dom";
+import { Info } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -14,7 +15,7 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-to-b from-agency-navy/95 to-agency-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <AnimatedElement animation="animate-fade-up" className="flex flex-col items-center md:flex-row md:justify-between">
+        <AnimatedElement animation="animate-fade-up" className="flex flex-col md:flex-row md:justify-between items-start">
           <div className="mb-6 md:mb-0">
             <h2 className="text-xl font-bold">
               Rapid<span className="text-agency-purple">Research</span>
@@ -22,6 +23,25 @@ const Footer = () => {
             <p className="mt-2 text-gray-300 max-w-md">
               Expert user research for AI-powered products. Get actionable insights for your business.
             </p>
+          </div>
+          
+          <div className="flex flex-col space-y-2">
+            <h3 className="font-medium text-white mb-2">Quick Links</h3>
+            <Link 
+              to="/about" 
+              onClick={handleNavigate}
+              className="text-gray-300 hover:text-white transition-colors duration-300 flex items-center gap-1"
+            >
+              <Info className="h-4 w-4" />
+              <span>About Us</span>
+            </Link>
+            <Link 
+              to="/contact#form" 
+              onClick={handleNavigate}
+              className="text-gray-300 hover:text-white transition-colors duration-300"
+            >
+              Schedule Consultation
+            </Link>
           </div>
         </AnimatedElement>
         

@@ -41,9 +41,9 @@ const CTA = () => {
                 ))}
               </StaggeredChildren>
               
-              <Link to="/contact">
-                <Button className="bg-white text-agency-blue hover:bg-gray-100 text-base px-6 py-6 h-auto font-semibold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                  Schedule Consultation
+              <Link to="/contact#form">
+                <Button className="bg-[#F97316] hover:bg-[#F59E0B] text-white text-base px-6 py-6 h-auto font-semibold shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                  Get Started Now
                   <ArrowRight className="ml-2 h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
               </Link>

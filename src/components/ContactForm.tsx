@@ -13,10 +13,10 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="bg-white shadow-xl rounded-lg overflow-hidden border border-gray-100 transition-all duration-500 hover:shadow-2xl">
-      <div className="p-6 md:p-8">
+    <div className="rounded-lg overflow-hidden transition-all duration-500">
+      <div className="p-5 md:p-8">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
             <ContactFormFields isSubmitting={isSubmitting} />
           </form>
         </Form>

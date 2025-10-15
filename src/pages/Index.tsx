@@ -12,9 +12,10 @@ import Footer from "@/components/Footer";
 const Index = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Close menu when navigating to this page
+  // Close menu and scroll to top when navigating to this page
   useEffect(() => {
     setIsMenuOpen(false);
+    window.scrollTo(0, 0);
   }, []);
 
   // Share menu state with Navbar

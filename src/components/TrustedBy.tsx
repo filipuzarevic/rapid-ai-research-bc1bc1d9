@@ -18,6 +18,11 @@ const TrustedBy = () => {
       url: "https://www.playsaurus.com"
     },
     {
+      name: "Loop UX",
+      logo: "/loop-ux-logo.png",
+      url: "https://loop-ux.com"
+    },
+    {
       name: "Polling.com",
       logo: "/lovable-uploads/2faea0e5-f3cf-467a-9f64-74d62cb7a42d.png",
       url: "https://www.polling.com"

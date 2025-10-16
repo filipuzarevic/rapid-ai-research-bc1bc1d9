@@ -68,24 +68,24 @@ const Hero = () => {
             </div>
 
             <h1
-              className={`relative text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-8 transition-all duration-700 ${
-                showTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              className={`relative text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-8 transition-opacity duration-700 ${
+                showTitle ? 'opacity-100' : 'opacity-0'
               }`}
             >
               User Research for AI Products
             </h1>
 
             <p
-              className={`relative text-xl md:text-2xl text-agency-lightGray mb-12 leading-relaxed transition-all duration-700 ${
-                showSubtitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              className={`relative text-xl md:text-2xl text-agency-lightGray mb-12 leading-relaxed transition-opacity duration-700 ${
+                showSubtitle ? 'opacity-100' : 'opacity-0'
               }`}
             >
               From insight to impact in one week.
             </p>
 
             <div
-              className={`relative flex items-center space-x-6 transition-all duration-700 ${
-                showCTA ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              className={`relative flex items-center space-x-6 transition-opacity duration-700 ${
+                showCTA ? 'opacity-100' : 'opacity-0'
               }`}
             >
               <Link to="/contact">

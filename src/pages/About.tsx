@@ -29,7 +29,7 @@ const About = () => {
             <AnimatedElement animation="animate-fade-up" delay={100} className="w-full lg:w-2/5">
               <div className="overflow-hidden">
                 <img
-                  src="/lovable-uploads/91835533-f515-45b0-8076-324011ff7615.png"
+                  src="/founder-photo.jpeg"
                   alt="RapidResearch Founder"
                   className="w-full h-auto object-cover"
                 />

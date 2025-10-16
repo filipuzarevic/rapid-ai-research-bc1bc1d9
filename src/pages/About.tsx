@@ -13,7 +13,7 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-pattern">
       <Navbar />
 
       <main className="pt-24 pb-16">
@@ -57,7 +57,7 @@ const About = () => {
         </div>
 
         {/* Second Section */}
-        <div className="bg-agency-light py-24">
+        <div className="bg-pattern-alt py-24">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedElement animation="animate-fade-up">
               <h2 className="text-3xl md:text-4xl font-semibold text-agency-navy mb-8">

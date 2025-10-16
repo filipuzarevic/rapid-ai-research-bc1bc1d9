@@ -21,7 +21,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white">
+    <div className="min-h-screen flex flex-col bg-pattern">
       <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
 
       <div className="flex-grow pt-24 pb-16">

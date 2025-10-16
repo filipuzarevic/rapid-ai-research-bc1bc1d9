@@ -1,10 +1,29 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
+  const [showTitle, setShowTitle] = useState(false);
+  const [showSubtitle, setShowSubtitle] = useState(false);
+  const [showCTA, setShowCTA] = useState(false);
+
+  useEffect(() => {
+    // Wait 1 second, then show title
+    const titleTimer = setTimeout(() => setShowTitle(true), 1000);
+    // Show subtitle 600ms after title
+    const subtitleTimer = setTimeout(() => setShowSubtitle(true), 1600);
+    // Show CTA 600ms after subtitle
+    const ctaTimer = setTimeout(() => setShowCTA(true), 2200);
+
+    return () => {
+      clearTimeout(titleTimer);
+      clearTimeout(subtitleTimer);
+      clearTimeout(ctaTimer);
+    };
+  }, []);
+
   return (
     <div className="relative bg-agency-navy pt-32 pb-24 md:pt-40 md:pb-32 overflow-hidden">
       {/* Subtle grid pattern overlay */}
@@ -48,15 +67,27 @@ const Hero = () => {
               </div>
             </div>
 
-            <h1 className="relative text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-8">
+            <h1
+              className={`relative text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-8 transition-all duration-700 ${
+                showTitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
               User Research for AI Products
             </h1>
 
-            <p className="relative text-xl md:text-2xl text-agency-lightGray mb-12 leading-relaxed">
+            <p
+              className={`relative text-xl md:text-2xl text-agency-lightGray mb-12 leading-relaxed transition-all duration-700 ${
+                showSubtitle ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
               From insight to impact in one week.
             </p>
 
-            <div className="relative flex items-center space-x-6">
+            <div
+              className={`relative flex items-center space-x-6 transition-all duration-700 ${
+                showCTA ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+            >
               <Link to="/contact">
                 <button className="group inline-flex items-center bg-white text-agency-navy font-semibold text-base px-6 py-3 border-2 border-white hover:bg-transparent hover:text-white transition-all duration-200">
                   Schedule Call

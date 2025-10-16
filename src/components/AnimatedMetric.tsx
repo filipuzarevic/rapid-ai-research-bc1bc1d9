@@ -3,12 +3,14 @@ import { useAnimatedCounter } from "@/hooks/use-animated-counter";
 
 interface AnimatedMetricProps {
   metric: string;
+  initialDelay?: number;
 }
 
-const AnimatedMetric: React.FC<AnimatedMetricProps> = ({ metric }) => {
+const AnimatedMetric: React.FC<AnimatedMetricProps> = ({ metric, initialDelay = 0 }) => {
   const { displayValue, elementRef } = useAnimatedCounter(metric, {
     threshold: 0.5,
     duration: 2000,
+    initialDelay,
   });
 
   return (

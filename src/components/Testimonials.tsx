@@ -1,11 +1,47 @@
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedElement from "@/components/ui/animated-element";
 import AnimatedMetric from "@/components/AnimatedMetric";
 
 const Testimonials = () => {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isInViewport, setIsInViewport] = useState(false);
+  const [showSection, setShowSection] = useState(false);
+  const [startCounters, setStartCounters] = useState(false);
+
+  useEffect(() => {
+    const checkInitialViewport = () => {
+      if (sectionRef.current) {
+        const rect = sectionRef.current.getBoundingClientRect();
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+        // Check if any part of the section is visible in the viewport
+        const inView = rect.top < viewportHeight && rect.bottom > 0;
+        setIsInViewport(inView);
+
+        // If in viewport, wait for hero animation to complete before showing
+        if (inView) {
+          // Show section and start counters at the same time (after hero animation)
+          const timer = setTimeout(() => {
+            setShowSection(true);
+            setStartCounters(true);
+          }, 2200);
+          return () => clearTimeout(timer);
+        } else {
+          // If not in viewport, show immediately (will animate on scroll)
+          setShowSection(true);
+          setStartCounters(true);
+        }
+      }
+    };
+
+    // Check on mount and after a short delay to ensure layout is settled
+    checkInitialViewport();
+    const timer = setTimeout(checkInitialViewport, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
   const resultMetrics = [
     {
       metric: "+14%",
@@ -24,8 +60,15 @@ const Testimonials = () => {
     }
   ];
 
+
   return (
-    <section className="py-24 bg-pattern" id="testimonials">
+    <section
+      ref={sectionRef}
+      className={`py-24 bg-pattern transition-opacity duration-700 ${
+        showSection ? 'opacity-100' : 'opacity-0'
+      }`}
+      id="testimonials"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up">
           <div className="max-w-3xl mb-20">
@@ -39,7 +82,11 @@ const Testimonials = () => {
           {resultMetrics.map((item, index) => (
             <AnimatedElement key={index} animation="animate-fade-up" delay={index * 100}>
               <div className="space-y-3">
-                <AnimatedMetric metric={item.metric} />
+                {startCounters ? (
+                  <AnimatedMetric metric={item.metric} />
+                ) : (
+                  <div className="text-5xl font-bold text-agency-navy font-mono">0</div>
+                )}
                 <h3 className="text-xl font-semibold text-agency-navy">{item.title}</h3>
                 <p className="text-base text-agency-gray">{item.description}</p>
               </div>

@@ -3,16 +3,26 @@ import { useEffect, useRef, useState } from 'react';
 interface UseAnimatedCounterOptions {
   threshold?: number;
   duration?: number;
+  initialDelay?: number;
 }
 
 export const useAnimatedCounter = (
   endValue: string,
   options: UseAnimatedCounterOptions = {}
 ) => {
-  const { threshold = 0.5, duration = 2000 } = options;
+  const { threshold = 0.5, duration = 2000, initialDelay = 0 } = options;
   const [displayValue, setDisplayValue] = useState<string>('0');
   const [hasAnimated, setHasAnimated] = useState(false);
+  const [canAnimate, setCanAnimate] = useState(initialDelay === 0);
   const elementRef = useRef<HTMLDivElement>(null);
+
+  // Handle initial delay
+  useEffect(() => {
+    if (initialDelay > 0) {
+      const timer = setTimeout(() => setCanAnimate(true), initialDelay);
+      return () => clearTimeout(timer);
+    }
+  }, [initialDelay]);
 
   useEffect(() => {
     const element = elementRef.current;
@@ -27,6 +37,9 @@ export const useAnimatedCounter = (
 
     const [, prefix, numberStr, suffix] = matches;
     const targetNumber = parseFloat(numberStr);
+
+    // If we can't animate yet, just wait
+    if (!canAnimate) return;
 
     // Create Intersection Observer
     const observer = new IntersectionObserver(
@@ -46,7 +59,7 @@ export const useAnimatedCounter = (
     return () => {
       observer.disconnect();
     };
-  }, [endValue, threshold, duration, hasAnimated]);
+  }, [endValue, threshold, duration, hasAnimated, canAnimate]);
 
   const animateCounter = (
     target: number,

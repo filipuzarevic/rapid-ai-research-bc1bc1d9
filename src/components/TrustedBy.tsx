@@ -1,9 +1,6 @@
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import AnimatedElement from "@/components/ui/animated-element";
-import StaggeredChildren from "@/components/ui/staggered-children";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 
 const TrustedBy = () => {
   const companies = [
@@ -14,7 +11,7 @@ const TrustedBy = () => {
     },
     {
       name: "Playsaurus",
-      logo: "/playsaurus-logo.svg",
+      logo: "/playsaurus-logo.png",
       url: "https://www.playsaurus.com"
     },
     {
@@ -29,40 +26,79 @@ const TrustedBy = () => {
     }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % companies.length);
+    }, 2500); // Change logo every 2.5 seconds
+
+    return () => clearInterval(interval);
+  }, [companies.length]);
+
   return (
-    <section className="py-24 bg-pattern-alt" id="trusted-by">
+    <section className="py-20 bg-pattern-alt" id="trusted-by">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedElement animation="animate-fade-up" className="text-center mb-20">
+        <AnimatedElement animation="animate-fade-up" className="text-center mb-12">
           <h2 className="text-4xl md:text-5xl font-bold text-agency-navy md:border-l-0 md:pl-0">
             Trusted By
           </h2>
         </AnimatedElement>
 
-        <StaggeredChildren
-          className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-20"
-          animation="animate-fade-up"
-          staggerDelay={150}
-        >
-          {companies.map((company, index) => (
-            <div
-              key={index}
-              className="group hover:-translate-y-1 transition-all duration-300 min-w-[120px] min-h-[80px] flex items-center justify-center"
-            >
-              <a
-                href={company.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center h-full w-full"
-              >
-                <img
-                  src={company.logo}
-                  alt={`${company.name} logo`}
-                  className="max-h-12 md:max-h-16 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-                />
-              </a>
-            </div>
-          ))}
-        </StaggeredChildren>
+        <div className="relative flex justify-center items-center h-[100px] overflow-hidden">
+          <div className="relative w-full max-w-[250px] md:max-w-[300px] flex justify-center items-center">
+            {companies.map((company, index) => {
+              // Calculate position relative to current index
+              const position = (index - currentIndex + companies.length) % companies.length;
+
+              let translateX = '0%';
+              let opacity = 0;
+              let zIndex = 0;
+
+              if (position === 0) {
+                // Current item - center
+                translateX = '0%';
+                opacity = 1;
+                zIndex = 10;
+              } else if (position === 1) {
+                // Next item - coming from right
+                translateX = '150%';
+                opacity = 0;
+                zIndex = 5;
+              } else {
+                // Previous items - going to left
+                translateX = '-150%';
+                opacity = 0;
+                zIndex = 5;
+              }
+
+              return (
+                <div
+                  key={index}
+                  className="absolute transition-all duration-700 ease-in-out"
+                  style={{
+                    transform: `translateX(${translateX})`,
+                    opacity,
+                    zIndex,
+                  }}
+                >
+                  <a
+                    href={company.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center"
+                  >
+                    <img
+                      src={company.logo}
+                      alt={`${company.name} logo`}
+                      className="max-h-16 md:max-h-20 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+                    />
+                  </a>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </section>
   );

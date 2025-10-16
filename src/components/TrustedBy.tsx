@@ -11,6 +11,11 @@ const TrustedBy = () => {
       url: "https://www.kiwi.com"
     },
     {
+      name: "Playsaurus",
+      logo: "/playsaurus-logo.svg",
+      url: "https://www.playsaurus.com"
+    },
+    {
       name: "Polling.com",
       logo: "/lovable-uploads/2faea0e5-f3cf-467a-9f64-74d62cb7a42d.png",
       url: "https://www.polling.com"
@@ -26,26 +31,26 @@ const TrustedBy = () => {
           </h2>
         </AnimatedElement>
 
-        <StaggeredChildren 
+        <StaggeredChildren
           className="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-20"
           animation="animate-fade-up"
           staggerDelay={150}
         >
           {companies.map((company, index) => (
-            <div 
+            <div
               key={index}
-              className="group hover:-translate-y-1 transition-all duration-300"
+              className="group hover:-translate-y-1 transition-all duration-300 min-w-[120px] min-h-[80px] flex items-center justify-center"
             >
-              <a 
-                href={company.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="flex items-center justify-center h-full"
+              <a
+                href={company.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center h-full w-full"
               >
-                <img 
-                  src={company.logo} 
-                  alt={`${company.name} logo`} 
-                  className="max-h-10 md:max-h-12 w-auto object-contain"
+                <img
+                  src={company.logo}
+                  alt={`${company.name} logo`}
+                  className="max-h-12 md:max-h-16 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
                 />
               </a>
             </div>

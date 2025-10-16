@@ -14,10 +14,17 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col items-center md:flex-row md:justify-between mb-8">
           <div className="mb-6 md:mb-0">
-            <h2 className="text-xl font-bold">
-              Rapid<span className="text-agency-lightGray">Research</span>
-            </h2>
-            <p className="mt-2 text-agency-lightGray max-w-md">
+            <div className="flex items-center space-x-3 mb-3">
+              {/* Circle-dot logo mark */}
+              <div className="relative w-6 h-6 rounded-full border-2 border-white/40 transition-colors duration-300 flex items-center justify-center">
+                <div className="w-1.5 h-1.5 rounded-full bg-white transition-colors duration-300"></div>
+              </div>
+
+              <h2 className="text-xl font-bold">
+                Rapid <span className="text-agency-lightGray">Research</span>
+              </h2>
+            </div>
+            <p className="text-agency-lightGray max-w-md">
               User research for AI products.
             </p>
           </div>

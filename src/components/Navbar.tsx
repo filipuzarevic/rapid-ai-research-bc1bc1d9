@@ -80,6 +80,15 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
     ? "text-white transition-colors duration-300"
     : "text-agency-navy transition-colors duration-300";
 
+  // Logo mark colors (circle and dot)
+  const logoMarkClasses = isHomePage && !scrolled
+    ? "border-white/40"
+    : "border-agency-navy/40";
+
+  const logoDotClasses = isHomePage && !scrolled
+    ? "bg-white"
+    : "bg-agency-navy";
+
   // Icon color for mobile menu toggle
   const menuIconColor = isHomePage && !scrolled ? "text-white" : "text-gray-700";
 
@@ -88,9 +97,14 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-3">
+              {/* Circle-dot logo mark */}
+              <div className={`relative w-6 h-6 rounded-full border-2 ${logoMarkClasses} transition-colors duration-300 flex items-center justify-center`}>
+                <div className={`w-1.5 h-1.5 rounded-full ${logoDotClasses} transition-colors duration-300`}></div>
+              </div>
+
               <div className={logoClasses}>
-                <span className="font-bold">Rapid</span><span className={accentClasses}>Research</span>
+                <span className="font-bold">Rapid</span> <span className={accentClasses}>Research</span>
               </div>
             </Link>
           </div>

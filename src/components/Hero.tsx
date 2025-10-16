@@ -5,20 +5,27 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
-  const [showTitle, setShowTitle] = useState(false);
+  const [showUserResearch, setShowUserResearch] = useState(false);
+  const [showFor, setShowFor] = useState(false);
+  const [showAI, setShowAI] = useState(false);
+  const [showProducts, setShowProducts] = useState(false);
   const [showSubtitle, setShowSubtitle] = useState(false);
   const [showCTA, setShowCTA] = useState(false);
 
   useEffect(() => {
-    // Wait 1 second, then show title
-    const titleTimer = setTimeout(() => setShowTitle(true), 1000);
-    // Show subtitle 600ms after title
-    const subtitleTimer = setTimeout(() => setShowSubtitle(true), 1600);
-    // Show CTA 600ms after subtitle
-    const ctaTimer = setTimeout(() => setShowCTA(true), 2200);
+    // Staggered word-by-word fade in
+    const aiTimer = setTimeout(() => setShowAI(true), 1000);
+    const userResearchTimer = setTimeout(() => setShowUserResearch(true), 1400);
+    const forTimer = setTimeout(() => setShowFor(true), 1800);
+    const productsTimer = setTimeout(() => setShowProducts(true), 1800); // "for AI Products" together
+    const subtitleTimer = setTimeout(() => setShowSubtitle(true), 2400);
+    const ctaTimer = setTimeout(() => setShowCTA(true), 3000);
 
     return () => {
-      clearTimeout(titleTimer);
+      clearTimeout(aiTimer);
+      clearTimeout(userResearchTimer);
+      clearTimeout(forTimer);
+      clearTimeout(productsTimer);
       clearTimeout(subtitleTimer);
       clearTimeout(ctaTimer);
     };
@@ -67,12 +74,35 @@ const Hero = () => {
               </div>
             </div>
 
-            <h1
-              className={`relative text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-8 transition-opacity duration-700 ${
-                showTitle ? 'opacity-100' : 'opacity-0'
-              }`}
-            >
-              User Research for AI Products
+            <h1 className="relative text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-8">
+              <span
+                className={`transition-opacity duration-700 ${
+                  showUserResearch ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                User Research{' '}
+              </span>
+              <span
+                className={`transition-opacity duration-700 ${
+                  showFor ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                for{' '}
+              </span>
+              <span
+                className={`transition-opacity duration-700 ${
+                  showAI ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                AI{' '}
+              </span>
+              <span
+                className={`transition-opacity duration-700 ${
+                  showProducts ? 'opacity-100' : 'opacity-0'
+                }`}
+              >
+                Products
+              </span>
             </h1>
 
             <p

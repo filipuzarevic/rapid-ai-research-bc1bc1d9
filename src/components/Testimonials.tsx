@@ -26,7 +26,7 @@ const Testimonials = () => {
           const timer = setTimeout(() => {
             setShowSection(true);
             setStartCounters(true);
-          }, 2200);
+          }, 3000);
           return () => clearTimeout(timer);
         } else {
           // If not in viewport, show immediately (will animate on scroll)

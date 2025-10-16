@@ -88,8 +88,10 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className={logoClasses}>
-              Rapid<span className={accentClasses}>Research</span>
+            <Link to="/" className="flex items-center space-x-2">
+              <div className={logoClasses}>
+                <span className="font-bold">Rapid</span><span className={accentClasses}>Research</span>
+              </div>
             </Link>
           </div>
           
@@ -101,14 +103,14 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
               About
             </Link>
             <Link to="/contact">
-              <Button
+              <button
                 className={isHomePage && !scrolled
-                  ? "bg-white text-agency-navy hover:bg-gray-100 font-medium"
-                  : "bg-agency-navy hover:bg-agency-charcoal text-white font-medium"
+                  ? "inline-flex items-center bg-white text-agency-navy border-2 border-white hover:bg-transparent hover:text-white font-semibold px-4 py-2 text-sm transition-all duration-200"
+                  : "inline-flex items-center bg-agency-navy text-white border-2 border-agency-navy hover:bg-white hover:text-agency-navy font-semibold px-4 py-2 text-sm transition-all duration-200"
                 }
               >
                 Schedule Call
-              </Button>
+              </button>
             </Link>
           </div>
           
@@ -189,9 +191,9 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
             </Link>
             <div className="pt-2 pb-3">
               <Link to="/contact" onClick={handleToggle}>
-                <Button className="w-full bg-agency-navy hover:bg-agency-charcoal text-white font-medium">
+                <button className="w-full inline-flex items-center justify-center bg-agency-navy text-white border-2 border-agency-navy hover:bg-white hover:text-agency-navy font-semibold px-4 py-2 transition-all duration-200">
                   Schedule Call
-                </Button>
+                </button>
               </Link>
             </div>
           </div>

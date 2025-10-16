@@ -56,9 +56,9 @@ const Testimonials = () => {
         <AnimatedElement animation="animate-fade-up" delay={400}>
           <div className="mt-16">
             <Link to="/contact">
-              <button className="inline-flex items-center border-2 border-agency-navy text-agency-navy hover:bg-agency-navy hover:text-white font-medium px-8 py-3 transition-all duration-200">
+              <button className="group inline-flex items-center border-2 border-agency-navy text-agency-navy hover:bg-agency-navy hover:text-white font-semibold px-6 py-3 transition-all duration-200">
                 Schedule Call
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </button>
             </Link>
           </div>

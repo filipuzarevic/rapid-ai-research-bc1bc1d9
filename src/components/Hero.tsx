@@ -34,12 +34,10 @@ const Hero = () => {
 
             <div className="flex items-center space-x-6">
               <Link to="/contact">
-                <Button
-                  className="bg-white text-agency-navy hover:bg-gray-100 text-base px-8 py-6 h-auto transition-all duration-200"
-                >
+                <button className="group inline-flex items-center bg-white text-agency-navy font-semibold text-base px-6 py-3 border-2 border-white hover:bg-transparent hover:text-white transition-all duration-200">
                   Schedule Call
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </button>
               </Link>
             </div>
           </div>

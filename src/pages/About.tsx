@@ -1,7 +1,7 @@
 
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedElement from "@/components/ui/animated-element";
@@ -88,9 +88,10 @@ const About = () => {
               </h3>
 
               <Link to="/contact">
-                <Button className="bg-agency-navy hover:bg-agency-charcoal text-white font-medium px-8 py-6 h-auto text-base">
+                <button className="group inline-flex items-center border-2 border-agency-navy text-agency-navy hover:bg-agency-navy hover:text-white font-semibold px-6 py-3 transition-all duration-200">
                   Schedule Call
-                </Button>
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </button>
               </Link>
             </div>
           </AnimatedElement>

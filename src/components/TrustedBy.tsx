@@ -23,10 +23,10 @@ const TrustedBy = () => {
   ];
 
   return (
-    <section className="py-16 bg-white" id="trusted-by">
+    <section className="py-16 bg-pattern-alt" id="trusted-by">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up" className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-agency-navy">
+          <h2 className="text-3xl md:text-4xl font-bold text-agency-navy md:border-l-0 md:pl-0">
             Trusted By
           </h2>
         </AnimatedElement>

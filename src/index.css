@@ -99,6 +99,11 @@
     @apply bg-background text-foreground;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    /* Subtle background pattern */
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(15, 23, 42, 0.03) 1px, transparent 0);
+    background-size: 32px 32px;
+    background-position: 0 0;
   }
 
   /* Typography refinements for Inter */
@@ -120,5 +125,49 @@
   /* Monospace numbers for metrics */
   .font-mono {
     font-feature-settings: 'tnum' on, 'ss01' on;
+  }
+
+  /* Subtle honeycomb pattern for sections */
+  .bg-pattern {
+    background-color: #ffffff;
+    background-image:
+      linear-gradient(30deg, rgba(15, 23, 42, 0.015) 12%, transparent 12.5%, transparent 87%, rgba(15, 23, 42, 0.015) 87.5%, rgba(15, 23, 42, 0.015)),
+      linear-gradient(150deg, rgba(15, 23, 42, 0.015) 12%, transparent 12.5%, transparent 87%, rgba(15, 23, 42, 0.015) 87.5%, rgba(15, 23, 42, 0.015)),
+      linear-gradient(30deg, rgba(15, 23, 42, 0.015) 12%, transparent 12.5%, transparent 87%, rgba(15, 23, 42, 0.015) 87.5%, rgba(15, 23, 42, 0.015)),
+      linear-gradient(150deg, rgba(15, 23, 42, 0.015) 12%, transparent 12.5%, transparent 87%, rgba(15, 23, 42, 0.015) 87.5%, rgba(15, 23, 42, 0.015)),
+      linear-gradient(60deg, rgba(15, 23, 42, 0.012) 25%, transparent 25.5%, transparent 75%, rgba(15, 23, 42, 0.012) 75%, rgba(15, 23, 42, 0.012)),
+      linear-gradient(60deg, rgba(15, 23, 42, 0.012) 25%, transparent 25.5%, transparent 75%, rgba(15, 23, 42, 0.012) 75%, rgba(15, 23, 42, 0.012));
+    background-size: 160px 280px;
+    background-position: 0 0, 0 0, 80px 140px, 80px 140px, 0 0, 80px 140px;
+    background-attachment: fixed;
+  }
+
+  /* Alternating subtle gradient backgrounds */
+  .bg-pattern-alt {
+    background-color: #ffffff;
+    background-image:
+      linear-gradient(180deg, rgba(248, 250, 252, 0.4) 0%, rgba(248, 250, 252, 0.6) 100%),
+      linear-gradient(30deg, rgba(15, 23, 42, 0.015) 12%, transparent 12.5%, transparent 87%, rgba(15, 23, 42, 0.015) 87.5%, rgba(15, 23, 42, 0.015)),
+      linear-gradient(150deg, rgba(15, 23, 42, 0.015) 12%, transparent 12.5%, transparent 87%, rgba(15, 23, 42, 0.015) 87.5%, rgba(15, 23, 42, 0.015)),
+      linear-gradient(30deg, rgba(15, 23, 42, 0.015) 12%, transparent 12.5%, transparent 87%, rgba(15, 23, 42, 0.015) 87.5%, rgba(15, 23, 42, 0.015)),
+      linear-gradient(150deg, rgba(15, 23, 42, 0.015) 12%, transparent 12.5%, transparent 87%, rgba(15, 23, 42, 0.015) 87.5%, rgba(15, 23, 42, 0.015)),
+      linear-gradient(60deg, rgba(15, 23, 42, 0.012) 25%, transparent 25.5%, transparent 75%, rgba(15, 23, 42, 0.012) 75%, rgba(15, 23, 42, 0.012)),
+      linear-gradient(60deg, rgba(15, 23, 42, 0.012) 25%, transparent 25.5%, transparent 75%, rgba(15, 23, 42, 0.012) 75%, rgba(15, 23, 42, 0.012));
+    background-size: 100% 100%, 160px 280px, 160px 280px, 160px 280px, 160px 280px, 160px 280px, 160px 280px;
+    background-position: 0 0, 0 0, 0 0, 80px 140px, 80px 140px, 0 0, 80px 140px;
+    background-attachment: scroll, fixed, fixed, fixed, fixed, fixed, fixed;
+  }
+
+  /* Accent bar for section titles */
+  section h2 {
+    border-left: 3px solid #0F172A;
+    padding-left: 1rem;
+  }
+
+  @media (min-width: 769px) {
+    section h2 {
+      border-left: 2px solid #0F172A;
+      padding-left: 1.5rem;
+    }
   }
 }

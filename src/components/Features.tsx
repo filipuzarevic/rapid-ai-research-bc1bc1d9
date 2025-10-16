@@ -23,7 +23,7 @@ const Features = () => {
   ];
 
   return (
-    <section className="py-24 bg-white" id="features">
+    <section className="py-24 bg-pattern" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up">
           <div className="max-w-3xl mb-20">

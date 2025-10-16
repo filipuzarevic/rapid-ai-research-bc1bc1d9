@@ -29,7 +29,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-agency-light" id="testimonials">
+    <section className="py-24 bg-pattern" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up">
           <div className="max-w-3xl mb-20">
@@ -42,7 +42,7 @@ const Testimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {resultMetrics.map((item, index) => (
             <AnimatedElement key={index} animation="animate-fade-up" delay={index * 100}>
-              <div className="space-y-3">
+              <div className="space-y-3 p-6 rounded-lg transition-all duration-300 hover:shadow-md" style={{ boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)' }}>
                 <div className="text-5xl font-bold text-agency-navy font-mono">
                   {item.metric}
                 </div>

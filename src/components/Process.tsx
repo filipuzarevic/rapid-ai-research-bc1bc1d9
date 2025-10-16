@@ -22,7 +22,7 @@ const Process = () => {
   ];
 
   return (
-    <section className="py-24 bg-white" id="process">
+    <section className="py-24 bg-pattern" id="process">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up">
           <div className="max-w-3xl mb-20">

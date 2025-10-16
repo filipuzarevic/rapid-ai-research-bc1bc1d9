@@ -42,7 +42,7 @@ const Process = () => {
                 <h3 className="text-2xl font-semibold text-agency-navy">
                   {option.title}
                 </h3>
-                <div className="text-base text-agency-blue font-medium">
+                <div className="text-base text-agency-gray font-medium">
                   {option.subtitle}
                 </div>
                 <p className="text-base text-agency-gray leading-relaxed">

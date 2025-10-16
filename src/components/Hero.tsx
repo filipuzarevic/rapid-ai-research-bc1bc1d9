@@ -23,16 +23,40 @@ const Hero = () => {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="max-w-2xl">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-8">
+          <div className="max-w-2xl relative">
+            {/* Mobile background animation - very subtle */}
+            <div className="lg:hidden absolute inset-0 -top-10 -bottom-10 flex items-center justify-center pointer-events-none opacity-60">
+              <div className="relative w-[300px] h-[300px]">
+                {/* Central circle */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 rounded-full bg-white/[0.02] border border-white/[0.05] flex items-center justify-center">
+                  <div className="w-16 h-16 rounded-full bg-white/[0.03] animate-pulse-soft"></div>
+                </div>
+
+                {/* Orbiting elements - reduced to 3 */}
+                <div className="absolute inset-0 animate-spin-slow">
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-white/[0.02] border border-white/[0.08]"></div>
+                </div>
+                <div className="absolute inset-0 animate-spin-slow" style={{ animationDirection: 'reverse', animationDuration: '14s' }}>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-6 h-6 rounded-full bg-white/[0.02] border border-white/[0.08]"></div>
+                </div>
+                <div className="absolute inset-0 animate-spin-slow" style={{ animationDuration: '18s' }}>
+                  <div className="absolute top-1/2 right-0 -translate-y-1/2 w-7 h-7 rounded-full bg-white/[0.02] border border-white/[0.08]"></div>
+                </div>
+
+                {/* Connecting line */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 rounded-full border border-dashed border-white/[0.05]"></div>
+              </div>
+            </div>
+
+            <h1 className="relative text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1] mb-8">
               User Research for AI Products
             </h1>
 
-            <p className="text-xl md:text-2xl text-agency-lightGray mb-12 leading-relaxed">
+            <p className="relative text-xl md:text-2xl text-agency-lightGray mb-12 leading-relaxed">
               From insight to impact in one week.
             </p>
 
-            <div className="flex items-center space-x-6">
+            <div className="relative flex items-center space-x-6">
               <Link to="/contact">
                 <button className="group inline-flex items-center bg-white text-agency-navy font-semibold text-base px-6 py-3 border-2 border-white hover:bg-transparent hover:text-white transition-all duration-200">
                   Schedule Call
@@ -42,7 +66,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Visual element - Orbiting circles animation */}
+          {/* Visual element - Orbiting circles animation - Desktop only */}
           <div className="hidden lg:block relative h-[500px]">
             <div className="absolute inset-0 flex items-center justify-center">
               {/* Central circle - represents users */}

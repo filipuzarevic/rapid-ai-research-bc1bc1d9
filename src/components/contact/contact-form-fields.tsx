@@ -27,8 +27,8 @@ const ContactFormFields = ({ isSubmitting }: ContactFormFieldsProps) => {
         control={form.control}
         name="name"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel>Full Name</FormLabel>
+          <FormItem className="mb-6">
+            <FormLabel className="mb-2 block">Full Name</FormLabel>
             <FormControl>
               <Input
                 placeholder="Your name"
@@ -40,13 +40,13 @@ const ContactFormFields = ({ isSubmitting }: ContactFormFieldsProps) => {
           </FormItem>
         )}
       />
-      
+
       <FormField
         control={form.control}
         name="company"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel>Company</FormLabel>
+          <FormItem className="mb-6">
+            <FormLabel className="mb-2 block">Company</FormLabel>
             <FormControl>
               <Input
                 placeholder="Your company name"
@@ -58,13 +58,13 @@ const ContactFormFields = ({ isSubmitting }: ContactFormFieldsProps) => {
           </FormItem>
         )}
       />
-      
+
       <FormField
         control={form.control}
         name="email"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel>Email</FormLabel>
+          <FormItem className="mb-6">
+            <FormLabel className="mb-2 block">Email</FormLabel>
             <FormControl>
               <Input
                 placeholder="Your email address"
@@ -76,13 +76,13 @@ const ContactFormFields = ({ isSubmitting }: ContactFormFieldsProps) => {
           </FormItem>
         )}
       />
-      
+
       <FormField
         control={form.control}
         name="message"
         render={({ field }) => (
-          <FormItem>
-            <FormLabel>Message</FormLabel>
+          <FormItem className="mb-6">
+            <FormLabel className="mb-2 block">Message</FormLabel>
             <FormControl>
               <Textarea
                 placeholder="How can we help you?"

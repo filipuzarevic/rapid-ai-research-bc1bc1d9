@@ -76,9 +76,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
     ? "text-xl font-bold text-white transition-colors duration-300"
     : "text-xl font-bold text-agency-navy transition-colors duration-300";
 
-  const accentClasses = isHomePage && !scrolled
-    ? "text-white transition-colors duration-300"
-    : "text-agency-blue transition-colors duration-300";
+  const accentClasses = "text-agency-navy transition-colors duration-300";
 
   // Icon color for mobile menu toggle
   const menuIconColor = isHomePage && !scrolled ? "text-white" : "text-gray-700";
@@ -104,7 +102,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
               <Button
                 className={isHomePage && !scrolled
                   ? "bg-white text-agency-navy hover:bg-gray-100 font-medium"
-                  : "bg-agency-blue hover:bg-agency-charcoal text-white font-medium"
+                  : "bg-agency-navy hover:bg-agency-charcoal text-white font-medium"
                 }
               >
                 Schedule Call
@@ -189,7 +187,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
             </Link>
             <div className="pt-2 pb-3">
               <Link to="/contact" onClick={handleToggle}>
-                <Button className="w-full bg-agency-blue hover:bg-agency-charcoal text-white font-medium">
+                <Button className="w-full bg-agency-navy hover:bg-agency-charcoal text-white font-medium">
                   Schedule Call
                 </Button>
               </Link>

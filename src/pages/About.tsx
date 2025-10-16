@@ -16,9 +16,9 @@ const About = () => {
     <div className="min-h-screen bg-pattern">
       <Navbar />
 
-      <main className="pt-24 pb-16">
+      <main className="pt-24">
         {/* About Hero */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 pb-20">
           <AnimatedElement animation="animate-fade-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-agency-navy mb-16 max-w-3xl">
               Behind RapidResearch
@@ -57,7 +57,7 @@ const About = () => {
         </div>
 
         {/* Second Section */}
-        <div className="bg-pattern-alt py-24">
+        <div className="bg-pattern-alt py-20">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedElement animation="animate-fade-up">
               <h2 className="text-3xl md:text-4xl font-semibold text-agency-navy mb-8">
@@ -80,7 +80,7 @@ const About = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <AnimatedElement animation="animate-fade-up">
             <div className="max-w-2xl">
               <h3 className="text-3xl md:text-4xl font-semibold text-agency-navy mb-8">

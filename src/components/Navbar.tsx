@@ -77,7 +77,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
     : "text-xl font-bold text-agency-navy transition-colors duration-300";
 
   const accentClasses = isHomePage && !scrolled
-    ? "text-agency-lightGray transition-colors duration-300"
+    ? "text-white transition-colors duration-300"
     : "text-agency-blue transition-colors duration-300";
 
   // Icon color for mobile menu toggle
@@ -102,9 +102,8 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
             </Link>
             <Link to="/contact">
               <Button
-                variant={isHomePage && !scrolled ? "outline" : "default"}
                 className={isHomePage && !scrolled
-                  ? "border-2 border-white text-white hover:bg-white hover:text-agency-navy font-medium"
+                  ? "bg-white text-agency-navy hover:bg-gray-100 font-medium"
                   : "bg-agency-blue hover:bg-agency-charcoal text-white font-medium"
                 }
               >

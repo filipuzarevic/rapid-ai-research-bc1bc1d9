@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "@/components/ui/sonner";
-import { supabase } from "@/integrations/supabase/client";
 import { contactFormSchema, ContactFormValues } from "@/components/contact/contact-form-schema";
 
 export const useContactForm = () => {
@@ -22,42 +21,37 @@ export const useContactForm = () => {
 
   const onSubmit = async (values: ContactFormValues) => {
     setIsSubmitting(true);
-    
-    try {
-      // Ensure all required fields are present and non-optional
-      const submissionData = {
-        name: values.name,
-        company: values.company,
-        email: values.email,
-        message: values.message
-      };
-      
-      // Step 1: Store the submission in Supabase
-      const { error: dbError } = await supabase
-        .from('contact_submissions')
-        .insert(submissionData);
-      
-      if (dbError) {
-        throw new Error(`Database error: ${dbError.message}`);
-      }
-      
-      // Step 2: Send email notifications using Edge Function
-      const response = await supabase.functions.invoke('send-contact-notification', {
-        body: values
-      });
-      
-      if (response.error) {
-        throw new Error(`Email notification error: ${response.error.message}`);
-      }
 
-      console.log("Form submitted successfully:", { dbResult: "Success", emailResult: response.data });
-      
-      toast.success("Your message has been sent successfully!", {
-        description: "We'll get back to you as soon as possible.",
+    try {
+      // Use Web3Forms API - a free form submission service
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          name: values.name,
+          company: values.company,
+          email: values.email,
+          message: values.message,
+          subject: `New Contact Form Submission from ${values.name}`,
+        }),
       });
-      
-      setIsSubmitted(true);
-      form.reset();
+
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Form submitted successfully:", result);
+        toast.success("Your message has been sent successfully!", {
+          description: "We'll get back to you as soon as possible.",
+        });
+        setIsSubmitted(true);
+        form.reset();
+      } else {
+        throw new Error(result.message || "Failed to send message");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
       toast.error("Failed to send message", {

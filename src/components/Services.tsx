@@ -43,7 +43,7 @@ const Services = () => {
           </div>
         </AnimatedElement>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-10 max-w-6xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl">
           {services.map((service, index) => (
             <AnimatedElement key={index} animation="animate-fade-up" delay={index * 80}>
               <div className="space-y-2">

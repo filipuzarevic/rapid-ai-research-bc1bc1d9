@@ -35,7 +35,7 @@ const Features = () => {
           </div>
         </AnimatedElement>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12 max-w-5xl mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mb-16">
           {features.map((feature, index) => (
             <AnimatedElement key={index} animation="animate-fade-up" delay={index * 100}>
               <div className="space-y-2">
@@ -47,7 +47,7 @@ const Features = () => {
         </div>
 
         <AnimatedElement animation="animate-fade-up" delay={400}>
-          <div className="mt-8">
+          <div>
             <Link to="/contact">
               <button className="group inline-flex items-center border-2 border-agency-navy text-agency-navy hover:bg-agency-navy hover:text-white font-semibold px-6 py-3 transition-all duration-200">
                 Schedule Call

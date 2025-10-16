@@ -27,10 +27,10 @@ const Index = () => {
     <div className="min-h-screen">
       <Navbar isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
       <Hero />
-      <Features />
-      <Services />
-      <Process />
       <Testimonials />
+      <Process />
+      <Services />
+      <Features />
       <TrustedBy />
       <Footer />
     </div>

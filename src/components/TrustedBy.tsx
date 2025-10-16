@@ -2,6 +2,8 @@
 import React from "react";
 import AnimatedElement from "@/components/ui/animated-element";
 import StaggeredChildren from "@/components/ui/staggered-children";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const TrustedBy = () => {
   const companies = [

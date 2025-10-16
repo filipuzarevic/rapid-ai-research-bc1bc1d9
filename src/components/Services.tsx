@@ -1,6 +1,8 @@
 
 import React from "react";
 import AnimatedElement from "@/components/ui/animated-element";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const Services = () => {
   const services = [
@@ -31,7 +33,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="py-24 bg-pattern-alt" id="services">
+    <section className="py-24 bg-pattern" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up">
           <div className="max-w-3xl mb-20">

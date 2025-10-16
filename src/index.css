@@ -97,5 +97,28 @@
 
   body {
     @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography refinements for Inter */
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;
+    font-feature-settings: 'ss01' on, 'cv11' on;
+  }
+
+  /* Slightly tighter tracking for large headings */
+  .text-4xl, .text-5xl, .text-6xl, .text-7xl {
+    letter-spacing: -0.03em;
+  }
+
+  /* Optimal body text */
+  p, li, span {
+    letter-spacing: -0.011em;
+  }
+
+  /* Monospace numbers for metrics */
+  .font-mono {
+    font-feature-settings: 'tnum' on, 'ss01' on;
   }
 }

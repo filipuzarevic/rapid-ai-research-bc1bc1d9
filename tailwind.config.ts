@@ -64,14 +64,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				agency: {
-					blue: "#2563EB",
-					purple: "#8B5CF6",  // Electric Purple for innovation
-					navy: "#0F172A",    // Deep Navy for text/backgrounds
-					teal: "#06B6D4",    // Teal for modern tech feel
-					lightBlue: "#DBEAFE",
-					gray: "#F3F4F6",
-					accent: "#3B82F6",  // Bright Electric Blue for highlights
-					light: "#F8FAFC"    // Soft Gray for backgrounds
+					navy: "#0F172A",      // Deep navy for backgrounds
+					charcoal: "#1E293B",  // Charcoal for depth
+					slate: "#334155",     // Slate for borders
+					gray: "#64748B",      // Gray for secondary text
+					lightGray: "#94A3B8", // Light gray for subtle elements
+					blue: "#3B82F6",      // Electric blue accent
+					light: "#F8FAFC",     // Off-white background
+					white: "#FFFFFF"      // Pure white
 				}
 			},
 			borderRadius: {

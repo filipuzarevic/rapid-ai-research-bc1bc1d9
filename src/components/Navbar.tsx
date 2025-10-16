@@ -67,18 +67,18 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
 
   // For homepage, we want a transparent navbar that blends with hero,
   // but becomes white/transparent when scrolled
-  const navbarClasses = isHomePage 
-    ? `fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-sm border-b border-gray-200' : 'bg-transparent'}` 
-    : "fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-gray-200";
+  const navbarClasses = isHomePage
+    ? `fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-sm border-b border-agency-slate/10' : 'bg-transparent'}`
+    : "fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-agency-slate/10";
 
   // Text colors based on homepage scroll position or other pages
   const logoClasses = isHomePage && !scrolled
-    ? "text-xl font-bold text-white transition-colors duration-300" 
+    ? "text-xl font-bold text-white transition-colors duration-300"
     : "text-xl font-bold text-agency-navy transition-colors duration-300";
 
   const accentClasses = isHomePage && !scrolled
-    ? "text-white transition-colors duration-300" 
-    : "text-agency-purple transition-colors duration-300";
+    ? "text-agency-lightGray transition-colors duration-300"
+    : "text-agency-blue transition-colors duration-300";
 
   // Icon color for mobile menu toggle
   const menuIconColor = isHomePage && !scrolled ? "text-white" : "text-gray-700";
@@ -101,8 +101,14 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
               About
             </Link>
             <Link to="/contact">
-              <Button className={isHomePage && !scrolled ? "bg-white hover:bg-gray-100 text-agency-blue font-medium" : "bg-agency-blue hover:bg-agency-navy text-white font-medium"}>
-                Schedule Consultation
+              <Button
+                variant={isHomePage && !scrolled ? "outline" : "default"}
+                className={isHomePage && !scrolled
+                  ? "border-2 border-white text-white hover:bg-white hover:text-agency-navy font-medium"
+                  : "bg-agency-blue hover:bg-agency-charcoal text-white font-medium"
+                }
+              >
+                Schedule Call
               </Button>
             </Link>
           </div>
@@ -184,8 +190,8 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
             </Link>
             <div className="pt-2 pb-3">
               <Link to="/contact" onClick={handleToggle}>
-                <Button className="w-full bg-agency-blue hover:bg-agency-navy text-white font-medium">
-                  Schedule Consultation
+                <Button className="w-full bg-agency-blue hover:bg-agency-charcoal text-white font-medium">
+                  Schedule Call
                 </Button>
               </Link>
             </div>

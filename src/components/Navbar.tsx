@@ -76,7 +76,9 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
     ? "text-xl font-bold text-white transition-colors duration-300"
     : "text-xl font-bold text-agency-navy transition-colors duration-300";
 
-  const accentClasses = "text-agency-navy transition-colors duration-300";
+  const accentClasses = isHomePage && !scrolled
+    ? "text-white transition-colors duration-300"
+    : "text-agency-navy transition-colors duration-300";
 
   // Icon color for mobile menu toggle
   const menuIconColor = isHomePage && !scrolled ? "text-white" : "text-gray-700";

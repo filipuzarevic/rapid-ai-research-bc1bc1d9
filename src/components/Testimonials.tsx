@@ -3,6 +3,7 @@ import React from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedElement from "@/components/ui/animated-element";
+import AnimatedMetric from "@/components/AnimatedMetric";
 
 const Testimonials = () => {
   const resultMetrics = [
@@ -38,9 +39,7 @@ const Testimonials = () => {
           {resultMetrics.map((item, index) => (
             <AnimatedElement key={index} animation="animate-fade-up" delay={index * 100}>
               <div className="space-y-3">
-                <div className="text-5xl font-bold text-agency-navy font-mono">
-                  {item.metric}
-                </div>
+                <AnimatedMetric metric={item.metric} />
                 <h3 className="text-xl font-semibold text-agency-navy">{item.title}</h3>
                 <p className="text-base text-agency-gray">{item.description}</p>
               </div>

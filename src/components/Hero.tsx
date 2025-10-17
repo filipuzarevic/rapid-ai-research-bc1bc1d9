@@ -32,11 +32,18 @@ const Hero = () => {
   useEffect(() => {
     // Track scroll to reposition content when header appears
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+      setScrolled(scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Use passive event listener for better mobile performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('touchmove', handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchmove', handleScroll);
+    };
   }, []);
 
   return (

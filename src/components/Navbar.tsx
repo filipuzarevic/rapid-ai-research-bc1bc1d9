@@ -27,10 +27,13 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
       // For homepage, consider scrolled state after 50px of scroll
       // For other pages, consider scrolled immediately (they have light backgrounds)
       const scrollThreshold = isHomePage ? 50 : 0;
-      setScrolled(window.scrollY > scrollThreshold);
+      const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+      setScrolled(scrollY > scrollThreshold);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    // Use passive event listener for better mobile performance
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('touchmove', handleScroll, { passive: true });
 
     // For homepage, start with scrolled as false (header hidden)
     // For other pages, initialize based on scroll position
@@ -40,6 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('touchmove', handleScroll);
     };
   }, [isHomePage]);
 

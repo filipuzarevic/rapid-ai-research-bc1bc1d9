@@ -61,6 +61,50 @@ const Hero = () => {
 
   return (
     <div className="relative bg-agency-navy min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated Nebula Background - Layer 1: Deep space clouds */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-[3000ms] ${
+          showAI ? 'opacity-30' : 'opacity-0'
+        }`}
+        style={{
+          background: 'radial-gradient(ellipse 80% 50% at 50% 40%, rgba(88, 50, 150, 0.15) 0%, transparent 50%)',
+          animation: 'nebula-drift-1 40s ease-in-out infinite',
+        }}
+      />
+
+      {/* Animated Nebula Background - Layer 2: Cyan mist */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-[3000ms] ${
+          showUserResearch ? 'opacity-25' : 'opacity-0'
+        }`}
+        style={{
+          background: 'radial-gradient(ellipse 70% 60% at 20% 60%, rgba(20, 184, 166, 0.12) 0%, transparent 50%)',
+          animation: 'nebula-drift-2 35s ease-in-out infinite',
+        }}
+      />
+
+      {/* Animated Nebula Background - Layer 3: Deep blue fog */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-[3000ms] ${
+          showForProducts ? 'opacity-20' : 'opacity-0'
+        }`}
+        style={{
+          background: 'radial-gradient(ellipse 60% 70% at 80% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)',
+          animation: 'nebula-drift-3 45s ease-in-out infinite',
+        }}
+      />
+
+      {/* Animated Nebula Background - Layer 4: Purple accent */}
+      <div
+        className={`absolute inset-0 transition-opacity duration-[3000ms] ${
+          showTagline ? 'opacity-15' : 'opacity-0'
+        }`}
+        style={{
+          background: 'radial-gradient(ellipse 50% 80% at 60% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%)',
+          animation: 'nebula-drift-4 50s ease-in-out infinite',
+        }}
+      />
+
       {/* Subtle grid pattern overlay */}
       <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute inset-0" style={{
@@ -68,11 +112,6 @@ const Hero = () => {
                            linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
           backgroundSize: '100px 100px'
         }}></div>
-      </div>
-
-      {/* Minimal accent shape */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] opacity-5">
-        <div className="absolute inset-0 bg-gradient-to-br from-white to-transparent rounded-full blur-3xl"></div>
       </div>
 
       <div className={`relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 text-center transition-all duration-500 ${scrolled ? 'mt-0' : '-mt-12 sm:mt-0'}`}>

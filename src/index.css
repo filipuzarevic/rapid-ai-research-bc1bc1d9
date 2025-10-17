@@ -170,4 +170,85 @@
       padding-left: 1.5rem;
     }
   }
+
+  /* Nebula drift animations for hero background */
+  @keyframes nebula-drift-1 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.3;
+    }
+    25% {
+      transform: translate(10%, -5%) scale(1.05);
+      opacity: 0.35;
+    }
+    50% {
+      transform: translate(5%, 10%) scale(1.1);
+      opacity: 0.4;
+    }
+    75% {
+      transform: translate(-5%, 5%) scale(1.05);
+      opacity: 0.35;
+    }
+  }
+
+  @keyframes nebula-drift-2 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+      opacity: 0.25;
+    }
+    33% {
+      transform: translate(-8%, 10%) scale(1.08) rotate(2deg);
+      opacity: 0.3;
+    }
+    66% {
+      transform: translate(12%, -8%) scale(1.05) rotate(-2deg);
+      opacity: 0.28;
+    }
+  }
+
+  @keyframes nebula-drift-3 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.2;
+    }
+    30% {
+      transform: translate(-10%, -8%) scale(1.12);
+      opacity: 0.25;
+    }
+    60% {
+      transform: translate(8%, 12%) scale(1.08);
+      opacity: 0.22;
+    }
+  }
+
+  @keyframes nebula-drift-4 {
+    0%, 100% {
+      transform: translate(0, 0) scale(1) rotate(0deg);
+      opacity: 0.15;
+    }
+    40% {
+      transform: translate(15%, 10%) scale(1.1) rotate(3deg);
+      opacity: 0.2;
+    }
+    80% {
+      transform: translate(-10%, -12%) scale(1.05) rotate(-3deg);
+      opacity: 0.18;
+    }
+  }
+
+  /* GPU acceleration for smooth animations */
+  @media (prefers-reduced-motion: no-preference) {
+    [style*="animation"] {
+      will-change: transform, opacity;
+      backface-visibility: hidden;
+      perspective: 1000px;
+    }
+  }
+
+  /* Disable animations for users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    [style*="animation"] {
+      animation: none !important;
+    }
+  }
 }

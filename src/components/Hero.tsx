@@ -30,19 +30,32 @@ const Hero = () => {
   }, []);
 
   useEffect(() => {
+    let ticking = false;
+
     // Track scroll to reposition content when header appears
     const handleScroll = () => {
       const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-      setScrolled(scrollY > 50);
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(scrollY > 50);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     // Use passive event listener for better mobile performance
     window.addEventListener('scroll', handleScroll, { passive: true });
     window.addEventListener('touchmove', handleScroll, { passive: true });
 
+    // Check scroll position periodically as fallback for mobile browsers
+    const intervalId = setInterval(handleScroll, 100);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('touchmove', handleScroll);
+      clearInterval(intervalId);
     };
   }, []);
 

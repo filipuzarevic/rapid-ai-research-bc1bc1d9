@@ -23,12 +23,21 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
 
   // Add scroll event listener to track scroll position
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
       // For homepage, consider scrolled state after 50px of scroll
       // For other pages, consider scrolled immediately (they have light backgrounds)
       const scrollThreshold = isHomePage ? 50 : 0;
       const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
-      setScrolled(scrollY > scrollThreshold);
+
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(scrollY > scrollThreshold);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     // Use passive event listener for better mobile performance
@@ -41,9 +50,13 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
       handleScroll();
     }
 
+    // Check scroll position periodically as fallback for mobile browsers
+    const intervalId = setInterval(handleScroll, 100);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('touchmove', handleScroll);
+      clearInterval(intervalId);
     };
   }, [isHomePage]);
 

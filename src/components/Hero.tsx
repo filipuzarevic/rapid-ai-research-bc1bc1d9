@@ -64,44 +64,48 @@ const Hero = () => {
       {/* Animated Nebula Background - Layer 1: Deep space clouds */}
       <div
         className={`absolute inset-0 transition-opacity duration-[3000ms] ${
-          showAI ? 'opacity-30' : 'opacity-0'
+          showAI ? 'opacity-100' : 'opacity-0'
         }`}
         style={{
-          background: 'radial-gradient(ellipse 80% 50% at 50% 40%, rgba(88, 50, 150, 0.15) 0%, transparent 50%)',
+          background: 'radial-gradient(ellipse 80% 50% at 50% 40%, rgba(88, 50, 150, 0.2) 0%, transparent 50%)',
           animation: 'nebula-drift-1 40s ease-in-out infinite',
+          filter: 'blur(60px)',
         }}
       />
 
       {/* Animated Nebula Background - Layer 2: Cyan mist */}
       <div
-        className={`absolute inset-0 transition-opacity duration-[3000ms] ${
-          showUserResearch ? 'opacity-25' : 'opacity-0'
+        className={`absolute inset-0 transition-opacity duration-[3000ms] delay-300 ${
+          showUserResearch ? 'opacity-100' : 'opacity-0'
         }`}
         style={{
-          background: 'radial-gradient(ellipse 70% 60% at 20% 60%, rgba(20, 184, 166, 0.12) 0%, transparent 50%)',
+          background: 'radial-gradient(ellipse 70% 60% at 20% 60%, rgba(20, 184, 166, 0.18) 0%, transparent 50%)',
           animation: 'nebula-drift-2 35s ease-in-out infinite',
+          filter: 'blur(70px)',
         }}
       />
 
       {/* Animated Nebula Background - Layer 3: Deep blue fog */}
       <div
-        className={`absolute inset-0 transition-opacity duration-[3000ms] ${
-          showForProducts ? 'opacity-20' : 'opacity-0'
+        className={`absolute inset-0 transition-opacity duration-[3000ms] delay-500 ${
+          showForProducts ? 'opacity-100' : 'opacity-0'
         }`}
         style={{
-          background: 'radial-gradient(ellipse 60% 70% at 80% 50%, rgba(59, 130, 246, 0.1) 0%, transparent 50%)',
+          background: 'radial-gradient(ellipse 60% 70% at 80% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 50%)',
           animation: 'nebula-drift-3 45s ease-in-out infinite',
+          filter: 'blur(80px)',
         }}
       />
 
       {/* Animated Nebula Background - Layer 4: Purple accent */}
       <div
-        className={`absolute inset-0 transition-opacity duration-[3000ms] ${
-          showTagline ? 'opacity-15' : 'opacity-0'
+        className={`absolute inset-0 transition-opacity duration-[3000ms] delay-700 ${
+          showTagline ? 'opacity-100' : 'opacity-0'
         }`}
         style={{
-          background: 'radial-gradient(ellipse 50% 80% at 60% 70%, rgba(139, 92, 246, 0.08) 0%, transparent 50%)',
+          background: 'radial-gradient(ellipse 50% 80% at 60% 70%, rgba(139, 92, 246, 0.12) 0%, transparent 50%)',
           animation: 'nebula-drift-4 50s ease-in-out infinite',
+          filter: 'blur(90px)',
         }}
       />
 

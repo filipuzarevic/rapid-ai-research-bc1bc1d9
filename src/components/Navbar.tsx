@@ -24,17 +24,20 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
   // Add scroll event listener to track scroll position
   useEffect(() => {
     const handleScroll = () => {
-      // For homepage, consider scrolled state after 100px
+      // For homepage, consider scrolled state after 50px of scroll
       // For other pages, consider scrolled immediately (they have light backgrounds)
-      const scrollThreshold = isHomePage ? 100 : 0;
+      const scrollThreshold = isHomePage ? 50 : 0;
       setScrolled(window.scrollY > scrollThreshold);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
-    
-    // Initialize correct state on component mount
-    handleScroll();
-    
+
+    // For homepage, start with scrolled as false (header hidden)
+    // For other pages, initialize based on scroll position
+    if (!isHomePage) {
+      handleScroll();
+    }
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -65,10 +68,10 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
     }
   };
 
-  // For homepage, we want a transparent navbar that blends with hero,
-  // but becomes white/transparent when scrolled
+  // For homepage, hide navbar initially and fade in when scrolled
+  // For other pages, always show the navbar
   const navbarClasses = isHomePage
-    ? `fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/90 backdrop-blur-sm border-b border-agency-slate/10' : 'bg-transparent'}`
+    ? `fixed w-full z-50 transition-all duration-500 ${scrolled ? 'bg-white/90 backdrop-blur-sm border-b border-agency-slate/10 opacity-100 translate-y-0' : 'bg-transparent opacity-0 -translate-y-full pointer-events-none'}`
     : "fixed w-full bg-white/90 backdrop-blur-sm z-50 border-b border-agency-slate/10";
 
   // Text colors based on homepage scroll position or other pages

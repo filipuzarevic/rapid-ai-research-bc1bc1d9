@@ -72,7 +72,7 @@ const Testimonials = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedElement animation="animate-fade-up">
           <div className="max-w-3xl mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-agency-navy mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-agency-navy mb-6 leading-tight">
               Impact
             </h2>
           </div>
@@ -81,14 +81,14 @@ const Testimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-6xl">
           {resultMetrics.map((item, index) => (
             <AnimatedElement key={index} animation="animate-fade-up" delay={index * 100}>
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {startCounters ? (
                   <AnimatedMetric metric={item.metric} />
                 ) : (
-                  <div className="text-5xl font-bold text-agency-navy font-mono">0</div>
+                  <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-agency-navy font-mono">0</div>
                 )}
-                <h3 className="text-xl font-semibold text-agency-navy">{item.title}</h3>
-                <p className="text-base text-agency-gray">{item.description}</p>
+                <h3 className="text-xl md:text-2xl font-semibold text-agency-navy">{item.title}</h3>
+                <p className="text-base md:text-lg text-agency-gray">{item.description}</p>
               </div>
             </AnimatedElement>
           ))}

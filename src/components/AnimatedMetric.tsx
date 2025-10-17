@@ -14,7 +14,7 @@ const AnimatedMetric: React.FC<AnimatedMetricProps> = ({ metric, initialDelay = 
   });
 
   return (
-    <div ref={elementRef} className="text-5xl font-bold text-agency-navy font-mono">
+    <div ref={elementRef} className="text-5xl md:text-6xl lg:text-7xl font-bold text-agency-navy font-mono">
       {displayValue}
     </div>
   );
